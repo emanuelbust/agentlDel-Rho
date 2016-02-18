@@ -25,7 +25,7 @@ import pickle
 #		   - population is a list representing the population that the statistics
 #		     will be about
 #
-#	Returns: Nothing.
+#	Returns: Nothing
 #
 ##########################################################################################
 def recordStatistics(outFile, population):
