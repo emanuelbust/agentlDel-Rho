@@ -167,7 +167,7 @@ def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, e
 	tempDelFitness = max(0, 1 - s * ((rho *  lDelGene.count(1) / float(lDelGeneLength)) + \
 	                     (1 - lDelGene.count(1) / float(lDelGeneLength)) * rho**2 * \
 	                     pDel / (pDel + pMinusDel)))		
-	permDelFitness = (1 - 23/9 * mulDel)**lDelGene.count(1)
+	permDelFitness = (1 - 23.0/9.0 * mulDel)**lDelGene.count(1)
 	proofFitness =  1 / (1 - math.log(rho) * 10**-2.5)
 	
 	# Calculate the environmental fitness
@@ -372,10 +372,10 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 		for i in range (0, len(lDelRecombSites) - 1):
 			if i % 2 == 1:
 				population[deadIndex][1] += population[mateTwo][1]\
-				                     [lDelRecombSites[i]:lDelRecombSites[i + 1]] 
+				                            [lDelRecombSites[i]:lDelRecombSites[i + 1]] 
 			else:
 				population[deadIndex][1] +=  population[mateOne][1]\
-				                      [lDelRecombSites[i]:lDelRecombSites[i + 1]]
+				                             [lDelRecombSites[i]:lDelRecombSites[i + 1]]
 				                      
 		# Pick recombination sites for alpha
 		alphaLength = len(population[deadIndex][3])
@@ -395,7 +395,7 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 				                            [alphaDividers[i]:alphaDividers[i + 1]] 
 			else:
 				population[deadIndex][3] += population[mateOne][3]\
-											[alphaDividers[i]:alphaDividers[i + 1]]
+							    [alphaDividers[i]:alphaDividers[i + 1]]
 											
 		# Pick recombination sites for beta
 		betaLength = len(population[deadIndex][4])
@@ -415,7 +415,7 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 				                            [betaDividers[i]:betaDividers[i + 1]] 
 			else:
 				population[deadIndex][4] +=  population[mateOne][4]\
-								             [betaDividers[i]:betaDividers[i + 1]]
+							     [betaDividers[i]:betaDividers[i + 1]]
 		
 	else:
 		# Pick an individual to be the parent who isn't the person who just died
@@ -561,9 +561,7 @@ generations = int(sys.argv[5])
 pOneLoci = float(sys.argv[6])
 pZeroLoci = 1 - pOneLoci
 
-# DEBUGGING
-print("Recomb", recombination, "Directory", sys.argv[2], "PopSize", populationSize, "# of lDels", lDelGeneLength, "Gens", generations, "pOne", pOneLoci)
-# DEBUGGING
+print("Recomb", recombination, "Directory", sys.argv[2], "PopSize", populationSize, "# of lDels", lDelGeneLength, "Gens", generations,"pOne", pOneLoci)
 
 # All of the other paramaters. Most of these are taken from the 2011 paper
 selection = True
@@ -588,15 +586,9 @@ NUMBER_OF_LDEL_COUNT_WRITES = 5
 
 # Call for the population to be initialized
 population = initializePopulation(populationSize, pOneLoci, delLociFitnessCost, 
-								  lDelGeneLength, pNonDelToDel, pDelToNonDel, 
-								  plDelLociMutation, alphaGeneLength, betaGeneLength)
-'''								  
-# DEBUGGING
-print("Initial Population")
-for i in range (len(population)):
-	print(i, ": ", population[i][0], len(population[i][1]), population[i][2], "\n")
-# DEBUGGING
-'''
+				  lDelGeneLength, pNonDelToDel, pDelToNonDel, 
+				  plDelLociMutation, alphaGeneLength, betaGeneLength)
+
 # Output the time the population is done being initialized 
 sys.stdout.write("[" + time.asctime() + "]: ")
 sys.stdout.write("Population initialized...\n")
@@ -613,51 +605,18 @@ lDelOut = open("lDelOutput.txt", "w")
 # statstics on the population. One generation is N deaths and replacements
 for replacementNumber in range (populationSize * generations):
 	deadIndex = pickDeadIndiv(selection, population, 2)	
-	'''
-	# DEBUGGING
-	if replacementNumber % (populationSize * generations / 100) == 0:
-		print("=============================================================================")
-		print("Dead Individual: ", deadIndex, population[deadIndex][0], len(population[deadIndex][1]), population[deadIndex][2], "\n")
-	# DEBUGGING
-	'''	
+	
 	replaceDeadWithOffspring(deadIndex, recombination, population)
-	'''
-	# DEBUGGING
-	if replacementNumber % (populationSize * generations / 100) == 0:
-		print("New Individual: ", deadIndex, population[deadIndex][0], len(population[deadIndex][1]), population[deadIndex][2], "\n")
-	# DEBUGGING
-	'''
+	
 	mutateIndividual(population, plDelMutation, pRhoMutation, pNonDelToDel, pDelToNonDel,
 	                 deadIndex)
-	'''
-	# DEUBGGING
-	if replacementNumber % (populationSize * generations / 100) == 0:
-		print("New Mutated Individual: ", deadIndex, population[deadIndex][0], len(population[deadIndex][1]), population[deadIndex][2], "\n")
-	# DEBUGGING
-	'''
+
 	population[deadIndex][2] = getFitness(delLociFitnessCost, population[deadIndex][1], 
-	                                      pNonDelToDel, pDelToNonDel, plDelMutation, 
+	                                      pNonDelToDel, pDelToNonDel, plDelLociMutation, 
 	                                      population[deadIndex][0], 
 	                                      population[deadIndex][3], 
 	                                      population[deadIndex][4], envOpt)
-	'''                                      
-	# DEBUGGING
-	if replacementNumber % (populationSize * generations / 100) == 0:
-		print("Paramaters of fitness function")
-		print ("delLociFitnessCost", delLociFitnessCost)
-		print("lDel", population[deadIndex][1])
-		print("pDel", pNonDelToDel)
-		print("pMinsDel", pDelToNonDel)
-		print("plDelMutation", plDelMutation)
-		print("rho", population[deadIndex][0])
-		print("alpha", population[deadIndex][3])
-		print("beta", population[deadIndex][4])
-		print("Environmental Optimum", envOpt)
-		print("Fitness of offspring", population[deadIndex][2])
-		print("=============================================================================")
-	# DEBUGGING
-	'''
-	
+		
 	# Records stats 100 times every run and report the progress of the script
 	if replacementNumber % (populationSize * generations / NUMBER_OF_RESULT_WRITES) == 0:
 		recordStatistics(results, population)
