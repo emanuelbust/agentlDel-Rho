@@ -240,8 +240,8 @@ def initializePopulation(populationSize, pOne, s, lDelGeneLength,
 				lDelGene.append(0)
 	
 		# Initialize alpha and beta genes to zeroes
-		alphaGene = [0 for i in range(alphaGeneLength)]
-		betaGene = [0 for i in range(betaGeneLength)]
+		alphaGene = [0.0 for i in range(alphaGeneLength)]
+		betaGene = [0.0 for i in range(betaGeneLength)]
 		
 		# Find the rho value maximizing fitness given the lDel of the individual
 		individualRho = findRhoMaximizingFitness(s, lDelGene, pNonDelToDel, pDelToNonDel, 
@@ -441,78 +441,93 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 		population[deadIndex][4] = []
 		for i in range(len(population[mateOne][4])):
 			population[deadIndex][4].append(population[mateOne][4][i])
+
+				    
 ##########################################################################################
 #	Name: mutateIndividual
 #
-#	Assumptions:
+#	Assumptions: Beta mutations only occur when an lDel mutation has already occured.
 #
-#	Purpose: This function exist for the sake of taking an individual and mutating their,
-#                rho, lDel, alpha, and beta gene. A rho mutation takes an existing rho and 
-#		 scales it. An lDel mutation changes a loci from a 1 to a 0 or a 0 to a 1
-#		 (I don't know if it is possible to have no mutation). An alpha mutation 
-#		 entails picking a random loci and incrementing or decrementing it. A beta
-#		 mutation works the same as an alpha mutation except the the loci changed is
-#	         in the beta gene. All of the mutations are done with rates given by the
-#			  caller of the function. 
+#	Purpose: This method checks to see if there's a rho, lDel, alpha, or beta
+#		 mutation according to the mutation rates giveen by the user. Let k
+# 		 be the number of beta locus. If the index of an lDel mutation is less
+#		 or equal to k, then the beta gene is also mutated in the beta gene. If
+#		 the lDel mutation loci is greater than k, then only that lDel loci is
+#		 changed.
 #
-#	Arguments: population - the list storing all of the indviduals and their genetic 
-#			        information
-#		   plDelMutation - the probability of an
-#		   pRhoMutation - the probability of a mutation in rho
-# 		   pNonDelToDel - the probability of a 1 changing to a 0 in lDel via mutation
-#		   pDelToNonDel - the probability of a 0 changing to a 1 in lDel via mutation
-#		   mutantIndex - the index of the population  list where the genes of the 
-#			         individual who will receive mutations. 
-#				 population[mutantIndex] is the list of the mutants genes
+#	Arguments: population - a reference to the array containing the genetic 
+#				information of each inividual
 #
-#	Returns: None
+#		   plDelmutation - the probability of there being at least one mutation 
+#				   in the given lDel gene
+#
+#		   pRhoMutation - the porbability of a mutation of the read through 
+#				  rho
+#
+#		   pDelToNonDel - the probability of a given lDel loci to go from 
+#				  deleterious to benign
+#
+#		   mutantIndex - the index in the population array that holds the geneitc
+#				 information on the individual to be me mutated
+#
+#		   pAlphaMutations - the mutation rate for a given alplha gene 
+#
+#	Returns: Nothing
 #
 ##########################################################################################
-def mutateIndividual(population, plDelMutation, pRhoMutation, pNonDelToDel, pDelToNonDel, 
-                     mutantIndex):
-	# Mutate rho with rate pRhoMutaion
+def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
+		     pDelToNonDel, pNonDelToDel):
 	if random.random() < pRhoMutation:
-		# I'm not too sure why rho is mutated this way
 		population[mutantIndex][0] *= 10**random.gauss(0, .2)
-	
-	# Mutate lDel with rate pl	DelMutation
+
 	if random.random() < plDelMutation:
-		# The expression below after the less than sign is the probability of a zero 
-		# going to a one, a loci going from non deleterious to deleterious
-		if random.random() < population[mutantIndex][1].count(0) * pNonDelToDel / \
-		                     (population[mutantIndex][1].count(0) * pNonDelToDel + \
-		                     population[mutantIndex][1].count(1) * pDelToNonDel):# 0-->1
-		    # The line below returns all of the indices in zeroes the offspring lDel 
-		    # gene
-			lDelZeroIndices = [i for i, x in enumerate(population[mutantIndex][1])\
-			                   if x == 0]
-			# This condition is here to check for the case that there's a mutation from
-			# a zero to a one but no zeroes exists in the lDel gene
-			if len(lDelZeroIndices) > 0:
-				# The line below changes a random 0 to a one
-				population[mutantIndex][1][lDelZeroIndices[int(random.random() * \
-				                                  len(lDelZeroIndices))]] = 1
-		else: # That mutation 1->0
-			#print("PURGED\n")
-			# The line below returns all of the indices in ones the offspring lDel 
-		    # gene
-			lDelOneIndices = [i for i, x in enumerate(population[mutantIndex][1]) \
-			                  if x == 1]
-			# This condition is here to check for the case that there's a mutation from
-			# a one to a zero but no ones exists in the lDel gene
-			if len(lDelOneIndices) > 0:
-				# The line below changes a random 1 to a 0
-				population[mutantIndex][1][lDelOneIndices[int(random.random() * \
-				                  len(lDelOneIndices))]] = 0
-				                  
-		'''
-		if random.random() < imNotSureYet:
-			newAlpha[random.random() * len(newAlpha)] += \
-			random.gauss((-1 * sum(newAlpha) / 50), 1)
-		if random.random() < someOtherNumber	
-			newBeta[random.random() * len(newBeta)] += \
-			random.gauss((-1 * sum(newBeta) / 50), 1)
-		'''
+		# Pick the locus to change
+		betaLength = len(population[mutantIndex][4])
+		lDelLength = len(population[mutantIndex][1])
+		changeLoci = random.randint(0, betaLength + lDelLength)
+		
+		# The lDel locus has a corresponding beta locus
+		if changeLoci < betaLength:
+			mutationOccured = 0
+			# Loci to be change is a 1
+			if population[mutantIndex][1][changeLoci]:
+				if random.random() < pDelToNonDel:
+					population[mutantIndex][1][changeLoci] = 0
+					mutationOccured += 1
+			# Loci to ba changed is a 0
+			else:			
+				if random.random() < pNonDelToDel:
+					population[mutantIndex][1][changeLoci] = 1
+					mutationOccured += 1
+			
+			# Only mutat a beta if an lDel was changed
+			if mutationOccured:
+				# Add a number drawn out of a normal distribution
+				population[mutantIndex][4][changeLoci] += \
+                        	random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0, 
+				population[mutantIndex][4][changeLoci]/ \
+				len(population[mutantIndex][4]))
+		else:
+			# Change an lDel locus in the same way as above but mod
+			# the loci by the length in case it's >= 500
+			if population[mutantIndex][1][changeLoci % lDelLength]:
+				if random.random() < pDelToNonDel:
+					population[mutantIndex][1][changeLoci % lDelLength] = 0
+			else:
+				if random.random() < pNonDelToDel:
+                              		population[mutantIndex][1][changeLoci % lDelLength] = 1
+			
+	if random.random() < pAlphaMutation:
+		# Pick a an alpha locus to change
+		alphaLength = len(population[mutantIndex][3])
+		changeLoci = random.randint(0, alphaLength - 1)
+	
+		# Add another number drawn from a normal distribution
+		population[mutantIndex][3][changeLoci] += \
+		random.gauss(-1 * population[mutantIndex][3][changeLoci] / 50.0,
+		population[mutantIndex][3][changeLoci]/ \
+            	len(population[mutantIndex][3]))
+		    
 ##########################################################################################
 #	Name: outputlDelCount
 #
@@ -608,8 +623,8 @@ for replacementNumber in range (populationSize * generations):
 	
 	replaceDeadWithOffspring(deadIndex, recombination, population)
 	
-	mutateIndividual(population, plDelMutation, pRhoMutation, pNonDelToDel, pDelToNonDel,
-	                 deadIndex)
+	mutateIndividual(deadIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
+			 pDelToNonDel, pNonDelToDel)
 
 	population[deadIndex][2] = getFitness(delLociFitnessCost, population[deadIndex][1], 
 	                                      pNonDelToDel, pDelToNonDel, plDelLociMutation, 
