@@ -16,7 +16,7 @@ generations = int(sys.argv[5])
 pOneLoci = float(sys.argv[6])
 pZeroLoci = 1 - pOneLoci
 
-print("Recomb", recombination, "Directory", sys.argv[2], "PopSize", populationSize, "# of lDels", lDelGeneLength, "Gens", generations,"pOne", pOneLoci)
+print("Recomb", recombination, " | Directory", sys.argv[2], " | PopSize", populationSize, " | # of lDels", lDelGeneLength, " | Gens", generations," | pOne", pOneLoci, " |")
 
 # All of the other paramaters. Most of these are taken from the 2011 paper
 selection = True
@@ -31,13 +31,13 @@ nucleotidesPerlDel = 30
 plDelMutation = plDelLociMutation * nucleotidesPerlDel * lDelGeneLength
 alphaGeneLength = 10
 betaGeneLength = alphaGeneLength
-pAlphaMutation = plDelLociMutation * nucleotidesPerlDel * alphaGeneLength
+pAlphaMutation = 0.0001 # plDelLociMutation * nucleotidesPerlDel * alphaGeneLength
 pBetaMutation = plDelLociMutation * nucleotidesPerlDel * betaGeneLength
-envOptChangeRate = 15000
-envOpt = 0
+envOptChangePerGeneration = 2000 #15000
+envOpt = 0.0
 
 # How man times statstics are to be recorded to text files
-NUMBER_OF_RESULT_WRITES = 100
+NUMBER_OF_RESULT_WRITES = 1000
 NUMBER_OF_LDEL_COUNT_WRITES = 5
 
 # Call for the population to be initialized
@@ -60,10 +60,11 @@ lDelOut = open("lDelOutput.txt", "w")
 # Pick an individual to die, produce an offspring, mutates the offspring and report
 # statstics on the population. One generation is N deaths and replacements
 for replacementNumber in range (populationSize * generations):
-	#if replacementNumber % envOptChangeRate == 0 and replacementNumber != 0:
-		# 5 and 4 are paramters that are found to work the best. They're not from an assumption
-		#envOpt += random.gauss((-1 * envOpt) / float(5), 4)
-
+	# The two conditions ensure that shift happen as often as they should and don't happen immediately
+	if ((float(replacementNumber) / populationSize) % envOptChangePerGeneration) == 0 and (float(replacementNumber) / populationSize) != 0:
+		envOpt = cycle.envShift(envOpt)
+		print(envOpt)
+	
 	deadIndex = cycle.pickDeadIndiv(selection, population, 2)	
 	
 	cycle.replaceDeadWithOffspring(deadIndex, recombination, population)
@@ -77,9 +78,9 @@ for replacementNumber in range (populationSize * generations):
 	                                      population[deadIndex][3], 
 	                                      population[deadIndex][4], envOpt)
 		
-	# Records stats 100 times every run and report the progress of the script
+	# Records numbers decribing the population and report the progress of the script
 	if replacementNumber % (populationSize * generations / NUMBER_OF_RESULT_WRITES) == 0:
-		output.recordStatistics(results, population)
+		output.recordStatistics(results, population, envOpt)
 
 		sys.stdout.write("[" + time.asctime() + "]: ")
 		sys.stdout.write(str(int(replacementNumber / \
@@ -107,5 +108,5 @@ with open("frozenPopulation.bin", "wb") as storage:
 
 # Output the time that the program finishes
 sys.stdout.write("[" + time.asctime() + "]: ")
-sys.stdout.write("Program done\n")
+sys.stdout.write("Done\n")
 sys.stdout.flush()

@@ -185,7 +185,11 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 		for i in range(len(population[mateOne][4])):
 			population[deadIndex][4].append(population[mateOne][4][i])
 
-				    
+		if(population[deadIndex][3] != population[mateOne][3]):
+			print("Inheritance is messed up!")
+			exit(1)
+		
+		    
 ##########################################################################################
 #	Name: mutateIndividual
 #
@@ -245,12 +249,12 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 					
 			# THIS DOES BETA MUTATION
 			# Only mutat a beta if an lDel was changed
-			#if mutationOccured:
+			if mutationOccured:
 				# Add a number drawn out of a normal distribution
-				#population[mutantIndex][4][changeLoci] += \
-                        	#random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0, 
-				#population[mutantIndex][4][changeLoci]/ \
-				#len(population[mutantIndex][4]))
+				population[mutantIndex][4][changeLoci] += \
+                        	random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0, 
+				population[mutantIndex][4][changeLoci]/ \
+				len(population[mutantIndex][4]))
 		else:
 			# Change an lDel locus in the same way as above but mod
 			# the loci by the length in case it's >= 500
@@ -262,13 +266,23 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
                               		population[mutantIndex][1][changeLoci % lDelLength] = 1
 			
 	# THIF PART DOESN ALPHA MUTATION
-	#if random.random() < pAlphaMutation:
-		# Pick a an alpha locus to change
-		#alphaLength = len(population[mutantIndex][3])
-		#changeLoci = random.randint(0, alphaLength - 1)
+	if random.random() < pAlphaMutation:	
+		#print("ALPHA MUTATION")	
 	
+		# Pick a an alpha locus to change
+		alphaLength = len(population[mutantIndex][3])
+		changeLoci = random.randint(0, alphaLength - 1)
+			
 		# Add another number drawn from a normal distribution
-		#population[mutantIndex][3][changeLoci] += \
-		#random.gauss(-1 * population[mutantIndex][3][changeLoci] / 50.0,
-		#population[mutantIndex][3][changeLoci]/ \
-            	#len(population[mutantIndex][3]))
+		delta = random.gauss(-1 * population[mutantIndex][3][changeLoci] / 50.0,
+                10 / float(alphaLength))	
+	
+		population[mutantIndex][3][changeLoci] += delta
+
+		#print(population[mutantIndex][3][changeLoci])
+
+def envShift(currentOpt):
+	# 5 and 4 are paramters that are found to work the best. They're not from an assumption
+	print("ENVIRONMENTAL SHIFT")
+	currentOpt += random.gauss((-1 * currentOpt) / float(5), 4)
+	return currentOpt

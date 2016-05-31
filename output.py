@@ -24,7 +24,7 @@ import os, sys, random, math, time, pickle
 #	Returns: Nothing
 #
 ##########################################################################################
-def recordStatistics(outFile, population):
+def recordStatistics(outFile, population, envOptimum):
 	# The statistics to be recorded are initialized to 0
 	populationSize = len(population)
 	meanFitness = 0
@@ -37,7 +37,6 @@ def recordStatistics(outFile, population):
 	meanAlphaVariance = 0
 	meanBeta = 0
 	meanBetaVariance = 0
-	envOptimum = 0;
 		
 	# Iterate through the population once to find the mean
 	for i in range (populationSize):
@@ -62,7 +61,7 @@ def recordStatistics(outFile, population):
 	numbers = [meanFitness, meanFitnessVariance, meanlDelLoci, meanlDelLociVariance, 
 	           meanRho, meanRhoVariance, meanAlpha, meanAlphaVariance, meanBeta, 
 	           meanBetaVariance, envOptimum]
-	data = [str(statistic) for statistic in numbers]
+	data = [str(number) for number in numbers]
 	outFile.write("\t".join(data) + "\n")
 	outFile.flush()
 
