@@ -222,8 +222,8 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 #	Returns: Nothing
 #
 ##########################################################################################
-def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
-		     pDelToNonDel, pNonDelToDel):
+def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, 
+		     pBetaMutation, pDelToNonDel, pNonDelToDel):
 	if random.random() < pRhoMutation:
 		population[mutantIndex][0] *= 10**random.gauss(0, .2)
 
@@ -255,6 +255,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
                         	random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0, 
 				population[mutantIndex][4][changeLoci]/ \
 				len(population[mutantIndex][4]))
+			
 		else:
 			# Change an lDel locus in the same way as above but mod
 			# the loci by the length in case it's >= 500
@@ -266,9 +267,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
                               		population[mutantIndex][1][changeLoci % lDelLength] = 1
 			
 	# THIF PART DOESN ALPHA MUTATION
-	if random.random() < pAlphaMutation:	
-		#print("ALPHA MUTATION")	
-	
+	if random.random() < pAlphaMutation:		
 		# Pick a an alpha locus to change
 		alphaLength = len(population[mutantIndex][3])
 		changeLoci = random.randint(0, alphaLength - 1)
@@ -277,10 +276,25 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 		delta = random.gauss(-1 * population[mutantIndex][3][changeLoci] / 50.0,
                 10 / float(alphaLength))	
 	
-		population[mutantIndex][3][changeLoci] += delta
+		population[mutantIndex][3][changeLoci] += delta	
 
-		#print(population[mutantIndex][3][changeLoci])
-
+##########################################################################################
+#       Name: envShift
+#
+#       Assumptions: None
+#
+#       Purpose: This method takes the current environmental optimum, increments it with 
+#		 a number taken from a noram distriubtion a mean of the negative of the 
+#		 current optimum and a standard deviation of four. The mean is that so
+#		 that the optimum doesn't stray too far zero. The standard deviation is
+#		 that just because that's what whoever tweaked it thought was the best 
+#		 paramater 
+#
+#       Arguments: A float called currentOpt that is the current environmental optimum            
+#
+#       Returns: A float that is the incremented previous optimum
+#
+##########################################################################################
 def envShift(currentOpt):
 	# 5 and 4 are paramters that are found to work the best. They're not from an assumption
 	print("ENVIRONMENTAL SHIFT")

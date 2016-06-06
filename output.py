@@ -1,4 +1,5 @@
 import os, sys, random, math, time, pickle
+import setup
 
 ##########################################################################################
 #	Name: recordStatistics
@@ -27,16 +28,18 @@ import os, sys, random, math, time, pickle
 def recordStatistics(outFile, population, envOptimum):
 	# The statistics to be recorded are initialized to 0
 	populationSize = len(population)
-	meanFitness = 0
-	meanFitnessVariance = 0
-	meanRho = 0
-	meanlDelLoci = 0
-	meanRhoVariance = 0
-	meanlDelLociVariance = 0
-	meanAlpha = 0
-	meanAlphaVariance = 0
-	meanBeta = 0
-	meanBetaVariance = 0
+	meanFitness = 0.0
+	meanFitnessVariance = 0.0
+	meanRho = 0.0
+	meanlDelLoci = 0.0
+	meanRhoVariance = 0.0
+	meanlDelLociVariance = 0.0
+	meanAlpha = 0.0
+	meanAlphaVariance = 0.0
+	meanBeta = 0.0
+	meanBetaVariance = 0.0
+	meanEnvScore = 0.0
+	meanEnvScoreVariance = 0.0
 		
 	# Iterate through the population once to find the mean
 	for i in range (populationSize):
@@ -45,6 +48,9 @@ def recordStatistics(outFile, population, envOptimum):
 		meanFitness += population[i][2] / float(populationSize)
 		meanAlpha += sum(population[i][3]) / float(populationSize)
 		meanBeta += sum(population[i][4]) / float(populationSize)
+		meanEnvScore += setup.getEnvScore(population[i][3], population[i][1],
+					    population[i][4], population[i][0]) / \
+				float(populationSize)
 		
 	# Iterate another time to find the variance using the means
 	for i in range (populationSize):
@@ -56,11 +62,14 @@ def recordStatistics(outFile, population, envOptimum):
 		                          float(populationSize)
 		meanBetaVariance += (sum(population[i][4]) - meanBeta)**2 / \
 		                          float(populationSize)
+		meanEnvScoreVariance += (setup.getEnvScore(population[i][3], population[i][1],
+                                                     population[i][4], population[i][0]) - \
+					 meanEnvScore) / float(populationSize)
 	
 	# Write the numbers into a text using the join method. 
 	numbers = [meanFitness, meanFitnessVariance, meanlDelLoci, meanlDelLociVariance, 
 	           meanRho, meanRhoVariance, meanAlpha, meanAlphaVariance, meanBeta, 
-	           meanBetaVariance, envOptimum]
+	           meanBetaVariance, envOptimum, meanEnvScore, meanEnvScoreVariance]
 	data = [str(number) for number in numbers]
 	outFile.write("\t".join(data) + "\n")
 	outFile.flush()

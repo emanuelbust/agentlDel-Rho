@@ -58,6 +58,35 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 	return(rhoCorrespondingToMaxFit)
 
 ##########################################################################################
+#       Name: getEnvScore
+#
+#       Assumptions: It is assumed that the alpha sequences is at most as long as the lDel
+#	             sequence and that the beta sequences is exactly as long as the alpha
+#		     sequence. 
+#
+#       Purpose: The environmental score is calculated given alpha, lDel, and beta 
+#		 sequences and a read through rate rho. Let's say an individual has k 
+#		 cryptic sequences and l <= k alpha and l  beta loci. The environmental 
+#		 readiness of an individual is then 
+#		 Σ(alpha[i] + (1 - lDel[i]) * ρ * beta[i]) for i = 1, 2, ... , k. 
+#
+#       Arguments: Two lists, alphaGene and betaGene, of equal length containg floats. 
+#		   Rho is a float between 0 and 1. lDelGene is a list of 1s and 0s.
+#
+#       Returns: A float corresponding in the formula in the purpose section of this
+#		 block.
+#
+##########################################################################################
+def getEnvScore(alphaGene, lDelGene, betaGene, rho):
+	envScore = 0.0
+	for i in range(len(alphaGene)):
+		if lDelGene[i]:
+			envScore += alphaGene[i]
+		else:
+			envScore += alphaGene[i] + rho * betaGene[i]
+	return envScore
+
+##########################################################################################
 #	Name: getFitness
 #
 #	Assumptions: None
@@ -70,7 +99,8 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 #		 gene. A sum over the two lists will be calculated an used as an
 #		 environmental readiness that will be compared to the optimum. The sum 
 #		 includes alpha genes and possibly beta genes; whether or not these beta
-#		 genes are included depends on a strip of lDels at the end of the lDel gene. 
+#		 genes are included depends on a strip of lDels at the starrt  of the
+#		 lDel gene.
 #			
 #	Arguments: s - an integer corresponding to the fitness cost associated with 
 #		       proofreading
@@ -95,22 +125,14 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, envOptimum):
 	# Calculate the first three the fitness components
 	lDelGeneLength = len(lDelGene)
+	envScore = getEnvScore(alphaGene, lDelGene, betaGene, rho)
+
 	tempDelFitness = max(0, 1 - s * ((rho *  lDelGene.count(1) / float(lDelGeneLength)) + \
 	                     (1 - lDelGene.count(1) / float(lDelGeneLength)) * rho**2 * \
 	                     pDel / (pDel + pMinusDel)))		
 	permDelFitness = (1 - 23.0/9.0 * mulDel)**lDelGene.count(1)
 	proofFitness =  1 / (1 - math.log(rho) * 10**-2.5)
-	
-	# Calculate the environmental fitness
-	envTrait = 0
-	alphaGeneLength = len(alphaGene)
-	for i in range(alphaGeneLength):
-		expressionOflDel = (lDelGene[len(lDelGene) - (alphaGeneLength - i)] == 1)
-		if expressionOflDel:
-			envTrait += alphaGene[i]
-		else:
-			envTrait += alphaGene[i] + rho * betaGene[i]
-	envFitness = math.exp(-((envTrait - envOptimum)**2 / (2 * .5**2)))
+	envFitness = math.exp(-((envScore - envOptimum)**2 / (2 * .5**2)))
 	
 	# Multiply all the components together and return the result 
 	fitness = tempDelFitness * permDelFitness * proofFitness * envFitness
