@@ -64,8 +64,7 @@ def pickDeadIndiv(selection, population, fitnessIndex):
 #		     of no recombination, it is assumed that the person who died cannot be
 #                    the parent of the offspring replacing them.
 #
-#	Purpose: This method exists so that a dead individual can be replaced with an 
-#	         offspring. There are two cases: recombination is off or it is on. If it
+
 #		 is off, then the offspring gets copies of each of the genes of another 
 #		 individual in the population who is randomly chosen. If it is on, then 
 #		 the offspring gets a combination of different genes from each parent and 
@@ -84,6 +83,7 @@ def pickDeadIndiv(selection, population, fitnessIndex):
 ##########################################################################################
 def replaceDeadWithOffspring(deadIndex, recombination, population):
 	populationSize = len(population)
+	lDelGeneLength = len(population[0][1])
 	if recombination:
 		# Pick two parents
 		mateOne = deadIndex
@@ -231,7 +231,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 		# Pick the locus to change
 		betaLength = len(population[mutantIndex][4])
 		lDelLength = len(population[mutantIndex][1])
-		changeLoci = random.randint(0, betaLength + lDelLength)
+		changeLoci = random.randint(0, lDelLength) # -1 to avoid modding later on????????????????????????????
 		
 		# The lDel locus has a corresponding beta locus
 		if changeLoci < betaLength:
@@ -257,6 +257,8 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 				len(population[mutantIndex][4]))
 			
 		else:
+			# Is mode necessary if you change the change loci range???????????????????????????????????????????
+			
 			# Change an lDel locus in the same way as above but mod
 			# the loci by the length in case it's >= 500
 			if population[mutantIndex][1][changeLoci % lDelLength]:
@@ -297,6 +299,5 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 ##########################################################################################
 def envShift(currentOpt):
 	# 5 and 4 are paramters that are found to work the best. They're not from an assumption
-	print("ENVIRONMENTAL SHIFT")
 	currentOpt += random.gauss((-1 * currentOpt) / float(5), 4)
 	return currentOpt

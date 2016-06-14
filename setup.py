@@ -68,7 +68,7 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 #		 sequences and a read through rate rho. Let's say an individual has k 
 #		 cryptic sequences and l <= k alpha and l  beta loci. The environmental 
 #		 readiness of an individual is then 
-#		 Σ(alpha[i] + (1 - lDel[i]) * ρ * beta[i]) for i = 1, 2, ... , k. 
+#		 sum(alpha[i] + (1 - lDel[i]) * tho * beta[i]) for i = 1, 2, ... , k. 
 #
 #       Arguments: Two lists, alphaGene and betaGene, of equal length containg floats. 
 #		   Rho is a float between 0 and 1. lDelGene is a list of 1s and 0s.

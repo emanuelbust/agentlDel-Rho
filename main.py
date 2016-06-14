@@ -10,6 +10,7 @@ sys.stdout.flush()
 
 # All of the other paramaters. Most of these are taken from the 2011 paper
 selection = True
+environment = True
 pNonDelToDel = .4
 pDelToNonDel = .1 
 plDelLociMutation = 10**-8
@@ -18,12 +19,13 @@ pRhoMutation = 10**-5
 nucleotidesPerlDel = 30
 alphaGeneLength = 10
 betaGeneLength = alphaGeneLength
-pAlphaMutation = .001 # plDelLociMutation * nucleotidesPerlDel * alphaGeneLength
-pBetaMutation = .001 # plDelLociMutation * nucleotidesPerlDel * betaGeneLength
+pAlphaMutation = .001 
+pBetaMutation = .001
 envOptChangePerGeneration = 2000 
 envOpt = 0.0
 
-continuation = True
+continuation = None
+lDelGeneLength = -1
 # Population is to be intiailized
 if len(sys.argv) == 7:
 	# All of the parameters that are set via the command line
@@ -95,8 +97,10 @@ lDelOut = open(lDelOutName, "w")
 # statstics on the population. One generation is N deaths and replacements
 for replacementNumber in range (populationSize * generations):
 	
-	# The two conditions ensure that shift happen as often as they should and don't happen immediately
-	if ((float(replacementNumber) / populationSize) % envOptChangePerGeneration) == 0 and (float(replacementNumber) / populationSize) != 0:
+	# The two conditions ensure that shift happen as often as they should 
+	# and don't happen immediately
+	if ((float(replacementNumber) / populationSize) % envOptChangePerGeneration) == 0 \
+	    and (float(replacementNumber) / populationSize) != 0 and environment:
 		envOpt = cycle.envShift(envOpt)
 	
 
@@ -127,12 +131,12 @@ for replacementNumber in range (populationSize * generations):
 	   NUMBER_OF_LDEL_COUNT_WRITES) == 0:
 		output.outputlDelCount(population, 1, lDelOut)
 
+# Save the population as a binary file
 popFile = str(time.time()) + "_n" + str(populationSize) + "_ldels" + str(lDelGeneLength) + ".pop"
 with open(popFile, "wb") as storage:
         pickle.dump(population, storage)
 
 # Write the parameters to the end of the text file and close the file
-
 if not continuation:
 	parameters = "[populationSize = " + str(populationSize) + ", Generations = " + \
 		     str(generations) + ", pOneLoci = " + str(pOneLoci) + \
@@ -156,4 +160,5 @@ sys.stdout.write("Done\n")
 sys.stdout.write("Population file: " + popFile + "\n")
 sys.stdout.flush()
 
-os.system("python3 ~/agentSim/row2col.py " + os.getcwd()+ "/"  + lDelOutName)
+# Make all of the rows in the lDel output into columns
+os.system("python ~emanuelb/agentSim/row2col.py " + os.getcwd()+ "/"  + lDelOutName)
