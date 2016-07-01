@@ -1,6 +1,11 @@
-recombination = int(sys.argv[1])
-os.chdir(sys.argv[2])
-populationSize = int(sys.argv[3])
-lDelGeneLength = int(sys.argv[4])
-generations = int(sys.argv[5])
-pOneLoci = float(sys.argv[6])
+
+------------------------------------------------------------------
+| For new runs, the command line arguemetns are taken as follows:|
+------------------------------------------------------------------
+recombination workingDirectory populationSize cyrpticSeqLength generations initialDeletCrytpicSeqFreq
+
+-------------------------------------------------------------------------------
+| For continuations of runs, the command line arguements are taken as follows:|
+-------------------------------------------------------------------------------
+recombination workingDirectory generations populationFile
+ 

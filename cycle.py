@@ -1,4 +1,129 @@
 import os, sys, random, math, time, pickle
+
+###############################################################################
+#       Name: recombine
+#
+#       Assumption: It is assumed that the lists passed to the function do not
+#		    not contain objects. If the list does contain objects, the
+#		    function works correctly, but each list involved will have
+#	            a reference to the same object (shallow copy).
+#
+#       Purpose: A given number of recombination sites are randomly chosen.
+#		 Between each two recombination sites, a corresponding piece
+#		 of list from listOne or listTwo is added. Which list is
+#		 chosen to contribute is random.  
+#
+#       Arguements: - sites: an integer corresponding to the number of 
+#		      indices where the new list alternates
+#
+#                   - listOne: a list containing information that will be 
+#                              sectioned to form a new list
+#
+#                   - listTwo: another list containing information that will
+#                              be section off to form a new list
+#
+#       Returns: A new list that is a recombined version of the two lists
+#		 given.
+#
+###############################################################################
+def recombine(sites, listOne, listTwo):
+        # Check that the two lists are the same size
+        if len(listOne) != len(listTwo):
+                print "Lists are different size"
+                exit(1)
+        
+        # Choose the indices where the segments will alternate
+        length = len(listOne)
+	indices = [0, len(listOne)]
+	for i in range(sites):
+		indices.append(random.randint(0, len(listOne)))
+	indices.sort()		
+	
+        # Build the new list. Take a section from listTwo first.
+        product = []
+        for i in range(len(indices) - 1):
+                if random.random() <= .5: 
+                        product += listOne[indices[i]:indices[i + 1]]
+                else:
+                        product += listTwo[indices[i]:indices[i + 1]]
+
+        # Check that the new list is the size of the two original lists
+        if len(listOne) == len(listTwo) and len(listTwo) == len(product):
+                return product
+        else:
+                print "There's a bug in the recombination code."
+		exit(1)
+
+################################################################################
+#       Name: myCopy 
+#
+#       Assumptions: It is assumed that lists passed to this function will
+#                    only integers, lists, or boolean types. 
+#
+#       Purpose: myCopy makes a copy of a list by recursively appending each
+#                item in the original list to a new list.
+#
+#       Arguements: origList is a the list to be copied
+#
+#       Returns: Nothing if the list contains a type that is not one of the
+#                three stated in the assumptions. If the list contanins valid
+#                types, then a copy of the original list is returned.
+################################################################################
+def myCopy(origList):
+        newList = []
+        for i in range(len(origList)):
+    		# Append if the item in the list is an integer, string, 
+     		# or boolean
+		if type(origList[i]) is int or \
+		   type(origList[i]) is str or \
+		   type(origList[i]) is bool or \
+		   type(origList[i]) is float:
+			newList.append(origList[i])
+                # Recursively copy the item if it is a list
+                elif type(origList[i]) is list:
+                        newList.append(myCopy(origList[i]))
+                # Freak out if some other type of object is in the list
+                else:
+                       	print "Error: List contains invalid types"
+                        exit(1)
+
+        return newList
+
+###############################################################################
+#       Name: cooption 
+#
+#       Assumptions: The distribution that the new beta has the assumptions 
+#		     made the Rajon Masel 2011 paper. The equations come 
+#		     specifically from the the supplemental instruction.
+#
+#       Purpose: This functions checks to see whether a cooption event
+#		 happens. A cooption occurs when a stop codon is lost and the
+#		 the coding sequence then permanently includes the cryptic 
+#		 sequence. This manifests itself as an alpha trait being the
+#		 sum of the alpha and beta and a new beta being chosen 
+#		 randomly.
+#
+#       Arguements: indiv - an integer corresponding to the index holding 
+#			    the genetic information of the individual who
+#			    may experience cooption
+#		    pCooption - a float corresponding to the probability of 
+#				a cooption happening
+#		    alphaIndex - an integer corresponding to the index of 
+#				 of the alpha gene in an individual's entry
+#				 in the population array
+#		    betaIndex - an integer corresponding to the index of 
+#                               of the beta gene in an individual's entry
+#                               in the population array
+#
+#       Returns: Nothing
+# 
+###############################################################################
+def cooption(indiv, pCooption, alphaIndex, betaIndex):
+	if random.random() < pCooption:
+		population[indiv][alphaIndex] += population[indiv][betaIndex]
+		
+		population[indiv][betaIndex][index] = \
+		random.gauss(0.0, 16.0 / (9.0/25.0))
 				
 ##########################################################################################
 #	Name: pickDeadIndiv
@@ -99,96 +224,24 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 		else:
 			population[deadIndex][0] = population[mateTwo][0]
 		
-		# Pick a recombination site for every fifty loci in the not including index first
-		# or last index for the lDel gene
-		numberOflDelRecombSites = int(lDelGeneLength / 50)
-		lDelRecombSites = []
-		lDelRecombSites.append(0)
-		for i in range (numberOflDelRecombSites):
-			lDelRecombSites.append(random.randint(0,lDelGeneLength - 1))
-		lDelRecombSites.append(lDelGeneLength)
-		lDelRecombSites.sort()
-		
-		# Splice lDel from recombination site to recombination site, alternating between
-		# parent one and parent two
-		population[deadIndex][1] = []
-		for i in range (0, len(lDelRecombSites) - 1):
-			if i % 2 == 1:
-				population[deadIndex][1] += population[mateTwo][1]\
-				                            [lDelRecombSites[i]:lDelRecombSites[i + 1]] 
-			else:
-				population[deadIndex][1] +=  population[mateOne][1]\
-				                             [lDelRecombSites[i]:lDelRecombSites[i + 1]]
-				                      
-		# Pick recombination sites for alpha
-		alphaLength = len(population[deadIndex][3])
-		alphaRecombSites = 2 
-		alphaDividers = []
-		alphaDividers.append(0)
-		for i in range (alphaRecombSites):
-			alphaDividers.append(random.randint(0, alphaLength - 1))
-		alphaDividers.append(alphaLength)
-		alphaDividers.sort()
-		
-		# Splice together sections of alphas from both parents
-		population[deadIndex][3] = []
-		for i in range (0, len(alphaDividers) - 1):
-			if i % 2 == 1:
-				population[deadIndex][3] += population[mateTwo][3]\
-				                            [alphaDividers[i]:alphaDividers[i + 1]] 
-			else:
-				population[deadIndex][3] += population[mateOne][3]\
-							    [alphaDividers[i]:alphaDividers[i + 1]]
-											
-		# Pick recombination sites for beta
-		betaLength = len(population[deadIndex][4])
-		betaRecombSites = 2
-		betaDividers = []
-		betaDividers.append(0)
-		for i in range (betaRecombSites):
-			betaDividers.append(random.randint(0, betaLength - 1))
-		betaDividers.append(betaLength)
-		betaDividers.sort()
-		
-		# Splice together beta genes
-		population[deadIndex][4] = []
-		for i in range (0, len(betaDividers) - 1):
-			if i % 2 == 1:
-				population[deadIndex][4] += population[mateTwo][4]\
-				                            [betaDividers[i]:betaDividers[i + 1]] 
-			else:
-				population[deadIndex][4] +=  population[mateOne][4]\
-							     [betaDividers[i]:betaDividers[i + 1]]
+		# Recombine the parents and then give the offspring the result for 
+		# the lDel, alpha, and beta gene of the osspring  
+		population[deadIndex][1] = recombine(5, population[mateOne][1], 
+							population[mateTwo][1])
+	
+		population[deadIndex][3] = recombine(3, population[mateOne][3], 
+							population[mateTwo][3])
+				
+		population[deadIndex][4] = recombine(3, population[mateOne][4], 
+							population[mateTwo][4])
 		
 	else:
 		# Pick an individual to be the parent who isn't the person who just died
 		mateOne = deadIndex
 		while mateOne == deadIndex:
 			mateOne = int(random.random() * populationSize)
-			
-		# Assigne the give the offspring the rho of the parent
-		population[deadIndex][0] = population[mateOne][0]
-		
-		# Copy each lDel loci from the parent to the lDel gene of the offspring.
-		# (this is done manually to avoid multiple pointers to one gene)
-		population[deadIndex][1] = []
-		for i in range (len(population[mateOne][1])):
-			population[deadIndex][1].append(population[mateOne][1][i])
-		
-		# Copy the alpha gene from the parent to the offspring
-		population[deadIndex][3] = []
-		for i in range(len(population[mateOne][3])):
-			population[deadIndex][3].append(population[mateOne][3][i])
-			
-		# Copy the bea gene from the parent to the offspring
-		population[deadIndex][4] = []
-		for i in range(len(population[mateOne][4])):
-			population[deadIndex][4].append(population[mateOne][4][i])
-
-		if(population[deadIndex][3] != population[mateOne][3]):
-			print("Inheritance is messed up!")
-			exit(1)
-		
+		# Copy the the parent into the offsprings slot recursively	
+		population[deadIndex] = myCopy(population[mateOne])	
 		    
 ##########################################################################################
 #	Name: mutateIndividual
@@ -231,7 +284,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 		# Pick the locus to change
 		betaLength = len(population[mutantIndex][4])
 		lDelLength = len(population[mutantIndex][1])
-		changeLoci = random.randint(0, lDelLength) # -1 to avoid modding later on????????????????????????????
+		changeLoci = random.randint(0, lDelLength - 1) 
 		
 		# The lDel locus has a corresponding beta locus
 		if changeLoci < betaLength:
@@ -257,16 +310,13 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 				len(population[mutantIndex][4]))
 			
 		else:
-			# Is mode necessary if you change the change loci range???????????????????????????????????????????
-			
-			# Change an lDel locus in the same way as above but mod
-			# the loci by the length in case it's >= 500
-			if population[mutantIndex][1][changeLoci % lDelLength]:
+			# Change an lDel locus in the same way as above
+			if population[mutantIndex][1][changeLoci]:
 				if random.random() < pDelToNonDel:
-					population[mutantIndex][1][changeLoci % lDelLength] = 0
+					population[mutantIndex][1][changeLoci] = 0
 			else:
 				if random.random() < pNonDelToDel:
-                              		population[mutantIndex][1][changeLoci % lDelLength] = 1
+                              		population[mutantIndex][1][changeLoci] = 1
 			
 	# THIF PART DOESN ALPHA MUTATION
 	if random.random() < pAlphaMutation:		

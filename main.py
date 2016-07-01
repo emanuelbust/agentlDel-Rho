@@ -21,6 +21,7 @@ alphaGeneLength = 10
 betaGeneLength = alphaGeneLength
 pAlphaMutation = .001 
 pBetaMutation = .001
+pCooption = (1 + 7.0/9 + 7.0/9) * plDelLociMutation
 envOptChangePerGeneration = 2000 
 envOpt = 0.0
 
@@ -69,9 +70,8 @@ elif len(sys.argv) == 5:
 
 # Incorrect arguements are given
 else:
-	print("Incorrect number of arguements.")
-	print("You must have 7 for a new run or 5 to continue a run.")
-	print("You have %d. Check your arguements" % (len(sys.argv)))
+	print("You must have 6 for a new run or 4 to continue a run.")
+	print("You have %d." % (len(sys.argv) - 1))
 	exit(1)
 	
 # How man times statstics are to be recorded to text files
@@ -92,10 +92,13 @@ columns = ["MeanFitness", "MeanFitnessVariance", "MeanlDels", "MeanlDelsVariance
 results.write("\t".join(columns) + "\n")
 lDelOutName = "lDels.txt"
 lDelOut = open(lDelOutName, "w")
-	
+
+
+replacements = populationSize * generations
+replacementNumber = 0
 # Pick an individual to die, produce an offspring, mutates the offspring and report
 # statstics on the population. One generation is N deaths and replacements
-for replacementNumber in range (populationSize * generations):
+while replacementNumber < replacements:
 	
 	# The two conditions ensure that shift happen as often as they should 
 	# and don't happen immediately
@@ -111,25 +114,35 @@ for replacementNumber in range (populationSize * generations):
 	cycle.mutateIndividual(deadIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
 			 pDelToNonDel, pNonDelToDel)
 
+	cycle.cooption(deadIndex, pCooption, 3, 4)
+	
 	population[deadIndex][2] = setup.getFitness(delLociFitnessCost, population[deadIndex][1], 
 	                                      pNonDelToDel, pDelToNonDel, plDelLociMutation, 
 	                                      population[deadIndex][0], 
 	                                      population[deadIndex][3], 
 	                                      population[deadIndex][4], envOpt)
 		
-	# Records numbers decribing the population and report the progress of the script
+	# Records numbers decribing the population NUMBER_RESULT_WRITES times
 	if replacementNumber % (populationSize * generations / NUMBER_OF_RESULT_WRITES) == 0:
 		output.recordStatistics(results, population, envOpt)
-
+		
+				############
+				# BUG HERE #
+				############
+	# Report the progress of the script at each percent
+	if replacementNumber % (populationSize * generations / 100) == 0:
 		sys.stdout.write("[" + time.asctime() + "]: ")
 		sys.stdout.write(str(int(replacementNumber / \
-		                 (populationSize * generations) * NUMBER_OF_RESULT_WRITES)) + \
+		                 (populationSize * generations) * 100)) + \
 		                 "% complete\n")
 		sys.stdout.flush()
 		
+	# Records numbers decribing the population NUMBER_OF_LDEL_COUNT_WRITES times	
 	if replacementNumber % (populationSize * generations / \
 	   NUMBER_OF_LDEL_COUNT_WRITES) == 0:
 		output.outputlDelCount(population, 1, lDelOut)
+
+	replacementNumber += 1
 
 # Save the population as a binary file
 popFile = str(time.time()) + "_n" + str(populationSize) + "_ldels" + str(lDelGeneLength) + ".pop"
