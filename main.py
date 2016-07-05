@@ -21,7 +21,7 @@ alphaGeneLength = 10
 betaGeneLength = alphaGeneLength
 pAlphaMutation = .001 
 pBetaMutation = .001
-pCooption = (1 + 7.0/9 + 7.0/9) * plDelLociMutation
+pCooption = .0001#(1 + 7.0/9 + 7.0/9) * plDelLociMutation
 envOptChangePerGeneration = 2000 
 envOpt = 0.0
 
@@ -114,7 +114,7 @@ while replacementNumber < replacements:
 	cycle.mutateIndividual(deadIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
 			 pDelToNonDel, pNonDelToDel)
 
-	cycle.cooption(deadIndex, pCooption, 3, 4)
+	cycle.cooption(deadIndex, pCooption, 3, 4, population)
 	
 	population[deadIndex][2] = setup.getFitness(delLociFitnessCost, population[deadIndex][1], 
 	                                      pNonDelToDel, pDelToNonDel, plDelLociMutation, 

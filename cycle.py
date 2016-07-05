@@ -118,12 +118,15 @@ def myCopy(origList):
 #       Returns: Nothing
 # 
 ###############################################################################
-def cooption(indiv, pCooption, alphaIndex, betaIndex):
-	if random.random() < pCooption:
-		population[indiv][alphaIndex] += population[indiv][betaIndex]
+def cooption(indiv, pCooption, alphaIndex, betaIndex, population):
+	for i in range(len(population[indiv][alphaIndex])):
+		if random.random() < pCooption:
+			population[indiv][alphaIndex][i] += population[indiv][betaIndex][i]
 		
-		population[indiv][betaIndex][index] = \
-		random.gauss(0.0, 16.0 / (9.0/25.0))
+			population[indiv][betaIndex][i] = \
+			random.gauss(0.0, 16.0 / (9.0/25.0))
+
+			print("-----------COOPTION---------------")
 				
 ##########################################################################################
 #	Name: pickDeadIndiv
@@ -303,11 +306,14 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 			# THIS DOES BETA MUTATION
 			# Only mutat a beta if an lDel was changed
 			if mutationOccured:
+				
+				print("++++++++++++++++BETA MUTATION+++++++++++++++++++")
+				print(population[mutantIndex][4][changeLoci])
 				# Add a number drawn out of a normal distribution
 				population[mutantIndex][4][changeLoci] += \
-                        	random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0, 
-				population[mutantIndex][4][changeLoci]/ \
-				len(population[mutantIndex][4]))
+				random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0,
+                		10 / float(betaLength))			
+				print(population[mutantIndex][4][changeLoci])
 			
 		else:
 			# Change an lDel locus in the same way as above

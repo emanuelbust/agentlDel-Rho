@@ -78,6 +78,12 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 #
 ##########################################################################################
 def getEnvScore(alphaGene, lDelGene, betaGene, rho):
+	if len(alphaGene) != len(betaGene):
+		print("Alpha and beta are different lengths.")
+		print("Alpha: ", alphaGene)
+		print("Beta: ", betaGene)
+		exit(1)
+	
 	envScore = 0.0
 	for i in range(len(alphaGene)):
 		if lDelGene[i]:
