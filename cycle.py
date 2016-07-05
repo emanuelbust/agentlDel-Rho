@@ -27,31 +27,31 @@ import os, sys, random, math, time, pickle
 #
 ###############################################################################
 def recombine(sites, listOne, listTwo):
-        # Check that the two lists are the same size
-        if len(listOne) != len(listTwo):
-                print "Lists are different size"
-                exit(1)
+	# Check that the two lists are the same size
+	if len(listOne) != len(listTwo):
+		print("Lists are different size")
+		exit(1)
         
-        # Choose the indices where the segments will alternate
-        length = len(listOne)
+	# Choose the indices where the segments will alternate
+	length = len(listOne)
 	indices = [0, len(listOne)]
 	for i in range(sites):
 		indices.append(random.randint(0, len(listOne)))
 	indices.sort()		
 	
-        # Build the new list. Take a section from listTwo first.
-        product = []
-        for i in range(len(indices) - 1):
-                if random.random() <= .5: 
-                        product += listOne[indices[i]:indices[i + 1]]
-                else:
-                        product += listTwo[indices[i]:indices[i + 1]]
+	# Build the new list. Take a section from listTwo first.
+	product = []
+	for i in range(len(indices) - 1):
+		if random.random() <= .5: 
+			product += listOne[indices[i]:indices[i + 1]]
+		else:
+			product += listTwo[indices[i]:indices[i + 1]]
 
-        # Check that the new list is the size of the two original lists
-        if len(listOne) == len(listTwo) and len(listTwo) == len(product):
-                return product
-        else:
-                print "There's a bug in the recombination code."
+	# Check that the new list is the size of the two original lists
+	if len(listOne) == len(listTwo) and len(listTwo) == len(product):
+		return product
+	else:
+		print("There's a bug in the recombination code.")
 		exit(1)
 
 ################################################################################
@@ -70,24 +70,21 @@ def recombine(sites, listOne, listTwo):
 #                types, then a copy of the original list is returned.
 ################################################################################
 def myCopy(origList):
-        newList = []
-        for i in range(len(origList)):
+	newList = []
+	for i in range(len(origList)):
     		# Append if the item in the list is an integer, string, 
      		# or boolean
-		if type(origList[i]) is int or \
-		   type(origList[i]) is str or \
-		   type(origList[i]) is bool or \
-		   type(origList[i]) is float:
+		if type(origList[i]) is int or type(origList[i]) is str or type(origList[i]) is bool or type(origList[i]) is float:
 			newList.append(origList[i])
                 # Recursively copy the item if it is a list
-                elif type(origList[i]) is list:
+		elif type(origList[i]) is list:
                         newList.append(myCopy(origList[i]))
                 # Freak out if some other type of object is in the list
-                else:
-                       	print "Error: List contains invalid types"
+		else:
+                       	print("Error: List contains invalid types")
                         exit(1)
 
-        return newList
+	return newList
 
 ###############################################################################
 #       Name: cooption 
@@ -125,9 +122,7 @@ def cooption(indiv, pCooption, alphaIndex, betaIndex, population):
 		
 			population[indiv][betaIndex][i] = \
 			random.gauss(0.0, 16.0 / (9.0/25.0))
-
-			print("-----------COOPTION---------------")
-				
+	
 ##########################################################################################
 #	Name: pickDeadIndiv
 #
@@ -306,9 +301,6 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 			# THIS DOES BETA MUTATION
 			# Only mutat a beta if an lDel was changed
 			if mutationOccured:
-				
-				print("++++++++++++++++BETA MUTATION+++++++++++++++++++")
-				print(population[mutantIndex][4][changeLoci])
 				# Add a number drawn out of a normal distribution
 				population[mutantIndex][4][changeLoci] += \
 				random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0,

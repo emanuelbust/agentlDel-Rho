@@ -21,7 +21,7 @@ alphaGeneLength = 10
 betaGeneLength = alphaGeneLength
 pAlphaMutation = .001 
 pBetaMutation = .001
-pCooption = .0001#(1 + 7.0/9 + 7.0/9) * plDelLociMutation
+pCooption = (1 + 7.0/9 + 7.0/9) * plDelLociMutation
 envOptChangePerGeneration = 2000 
 envOpt = 0.0
 
