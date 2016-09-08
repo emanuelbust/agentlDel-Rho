@@ -2,10 +2,10 @@
 ------------------------------------------------------------------
 | For new runs, the command line arguemetns are taken as follows:|
 ------------------------------------------------------------------
-recombination workingDirectory populationSize cyrpticSeqLength generations initialDeletCrytpicSeqFreq
+recombination workingDirectory populationSize cyrpticSeqLength generations initialDeletCrytpicSeqFreq cooption replicationNumber
 
 -------------------------------------------------------------------------------
 | For continuations of runs, the command line arguements are taken as follows:|
 -------------------------------------------------------------------------------
-recombination workingDirectory generations populationFile
+recombination workingDirectory generations populationFile replicationNumber
  

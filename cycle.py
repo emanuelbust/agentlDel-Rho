@@ -305,7 +305,6 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 				population[mutantIndex][4][changeLoci] += \
 				random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0,
                 		10 / float(betaLength))			
-				print(population[mutantIndex][4][changeLoci])
 			
 		else:
 			# Change an lDel locus in the same way as above
