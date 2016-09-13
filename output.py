@@ -44,7 +44,7 @@ def recordStatistics(outFile, population, envOptimum):
 	# Iterate through the population once to find the mean
 	for i in range (populationSize):
 		meanRho += population[i][0] / float(populationSize)
-		meanlDelLoci += population[i][1].count(1) / float(populationSize)
+		meanlDelLoci += sum(population[i][1]) / float(populationSize)
 		meanFitness += population[i][2] / float(populationSize)
 		meanAlpha += sum(population[i][3]) / float(populationSize)
 		meanBeta += sum(population[i][4]) / float(populationSize)
@@ -55,7 +55,7 @@ def recordStatistics(outFile, population, envOptimum):
 	# Iterate another time to find the variance using the means
 	for i in range (populationSize):
 		meanRhoVariance += (population[i][0] - meanRho)**2 / float(populationSize)
-		meanlDelLociVariance += (population[i][1].count(1) - meanlDelLoci)**2 / \
+		meanlDelLociVariance += (sum(population[i][1]) - meanlDelLoci)**2 / \
 		                        float(populationSize)
 		meanFitnessVariance += (population[i][2] - meanFitness)**2 / float(populationSize)
 		meanAlphaVariance += (sum(population[i][3]) - meanAlpha)**2 / \
@@ -103,7 +103,7 @@ def recordStatistics(outFile, population, envOptimum):
 ##########################################################################################
 def outputlDelCount(population, lDelIndex, outfile):
 	for i in range (len(population)):
-		outfile.write(str(population[i][lDelIndex].count(1)) + " ")
+		outfile.write(str(sum(population[i][lDelIndex])) + " ")
 	# The line below ensures that each group of ldel outputs is 
 	# seperated by a new line
 	outfile.write("\n")

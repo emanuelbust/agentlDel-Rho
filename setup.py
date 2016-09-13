@@ -132,11 +132,12 @@ def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, e
 	# Calculate the first three the fitness components
 	lDelGeneLength = len(lDelGene)
 	envScore = getEnvScore(alphaGene, lDelGene, betaGene, rho)
+	lDels = sum(lDelGene)
 
-	tempDelFitness = max(0, 1 - s * ((rho *  lDelGene.count(1) / float(lDelGeneLength)) + \
-	                     (1 - lDelGene.count(1) / float(lDelGeneLength)) * rho**2 * \
+	tempDelFitness = max(0, 1 - s * ((rho *  lDels / float(lDelGeneLength)) + \
+	                     (1 - lDels / float(lDelGeneLength)) * rho**2 * \
 	                     pDel / (pDel + pMinusDel)))		
-	permDelFitness = (1 - 23.0/9.0 * mulDel)**lDelGene.count(1)
+	permDelFitness = (1 - 23.0/9.0 * mulDel)**lDels
 	proofFitness =  1 / (1 - math.log(rho) * 10**-2.5)
 	envFitness = math.exp(-((envScore - envOptimum)**2 / (2 * .5**2)))
 	
