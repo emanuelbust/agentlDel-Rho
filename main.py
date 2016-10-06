@@ -1,4 +1,4 @@
-import os, sys, random, math, time, pickle
+import os, sys, random, math, time, pickle, numpy
 import setup, cycle, output, terminate
 
 
@@ -114,7 +114,7 @@ lastPopFile = -1
 # Replace n individuals each generation
 replacements = populationSize * generations
 replacementNumber = 1
-while replacementNumber <= replacements:	
+while replacementNumber <= replacements:
 	# Shift the environment after a given number of replacements
 	if ((float(replacementNumber) / populationSize) % envOptChangePerGeneration) == 0 \
 	    and (float(replacementNumber) / populationSize) != 0 and environment:
@@ -164,12 +164,13 @@ while replacementNumber <= replacements:
 	# Count everyone's lDels	
 	if replacementNumber % (populationSize * generations / NUMBER_OF_LDEL_COUNT_WRITES) == 0:
 		output.outputlDelCount(population, 1, lDelOut)
-
+	'''
 	if replacementNumber > 2 * populationSize:
 		if terminate.isDoneLax(.01, stamp + ".results"):
 			results.write("LAX DONE\n")
 		if terminate.isDoneStrict(.01, stamp + ".results"):
 			results.write("STRICT DONE\n")	
+	'''	
 
 	replacementNumber += 1
 
@@ -181,7 +182,6 @@ if not continuation:
 		     str(lDelGeneLength) + "]" 
 
 else:
- 
 	parameters = "[populationSize = " + str(populationSize) + ", Generations = " + \
 		     str(generations) + ", Recombination = " + str(recombination) + \
 		     ", Ldel length = " + str(lDelGeneLength) + "]" 

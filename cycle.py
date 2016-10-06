@@ -1,4 +1,4 @@
-import os, sys, random, math, time, pickle
+import os, sys, random, math, time, pickle, numpy
 
 ###############################################################################
 #       Name: recombine
@@ -33,20 +33,20 @@ def recombine(sites, listOne, listTwo):
 		exit(1)
         
 	# Choose the indices where the segments will alternate
-	length = len(listOne)
-	indices = [0, len(listOne)]
+	length = (listOne)
+	indices = numpy.array([0, len(listOne)])
 	for i in range(sites):
-		indices.append(random.randint(0, len(listOne)))
-	indices.sort()		
+		indices = numpy.insert(indices, 0, random.randint(0, len(listOne)))
+	indices.sort()
 	
 	# Build the new list. Take a section from listTwo first.
-	product = []
+	product = numpy.array([])
 	for i in range(len(indices) - 1):
 		if random.random() <= .5: 
-			product += listOne[indices[i]:indices[i + 1]]
+			product = numpy.append(product, listOne[indices[i]:indices[i + 1]])
 		else:
-			product += listTwo[indices[i]:indices[i + 1]]
-
+			product = numpy.append(product, listTwo[indices[i]:indices[i + 1]])
+			
 	# Check that the new list is the size of the two original lists
 	if len(listOne) == len(listTwo) and len(listTwo) == len(product):
 		return product
@@ -282,7 +282,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 		# Pick the locus to change
 		betaLength = len(population[mutantIndex][4])
 		lDelLength = len(population[mutantIndex][1])
-		changeLoci = random.randint(0, lDelLength - 1) 
+		changeLoci = random.randint(0, lDelLength - 1)
 		
 		# The lDel locus has a corresponding beta locus
 		if changeLoci < betaLength:
@@ -314,7 +314,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 			else:
 				if random.random() < pNonDelToDel:
                               		population[mutantIndex][1][changeLoci] = 1
-			
+	
 	# THIF PART DOESN ALPHA MUTATION
 	if random.random() < pAlphaMutation:		
 		# Pick a an alpha locus to change

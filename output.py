@@ -1,4 +1,4 @@
-import os, sys, random, math, time, pickle
+import os, sys, random, math, time, pickle, numpy
 import setup
 
 ##########################################################################################
@@ -44,10 +44,10 @@ def recordStatistics(outFile, population, envOptimum):
 	# Iterate through the population once to find the mean
 	for i in range (populationSize):
 		meanRho += population[i][0] / float(populationSize)
-		meanlDelLoci += sum(population[i][1]) / float(populationSize)
+		meanlDelLoci += numpy.sum(population[i][1]) / float(populationSize)
 		meanFitness += population[i][2] / float(populationSize)
-		meanAlpha += sum(population[i][3]) / float(populationSize)
-		meanBeta += sum(population[i][4]) / float(populationSize)
+		meanAlpha += numpy.sum(population[i][3]) / float(populationSize)
+		meanBeta += numpy.sum(population[i][4]) / float(populationSize)
 		meanEnvScore += setup.getEnvScore(population[i][3], population[i][1],
 					    population[i][4], population[i][0]) / \
 				float(populationSize)
@@ -55,12 +55,12 @@ def recordStatistics(outFile, population, envOptimum):
 	# Iterate another time to find the variance using the means
 	for i in range (populationSize):
 		meanRhoVariance += (population[i][0] - meanRho)**2 / float(populationSize)
-		meanlDelLociVariance += (sum(population[i][1]) - meanlDelLoci)**2 / \
+		meanlDelLociVariance += (numpy.sum(population[i][1]) - meanlDelLoci)**2 / \
 		                        float(populationSize)
 		meanFitnessVariance += (population[i][2] - meanFitness)**2 / float(populationSize)
-		meanAlphaVariance += (sum(population[i][3]) - meanAlpha)**2 / \
+		meanAlphaVariance += (numpy.sum(population[i][3]) - meanAlpha)**2 / \
 		                          float(populationSize)
-		meanBetaVariance += (sum(population[i][4]) - meanBeta)**2 / \
+		meanBetaVariance += (numpy.sum(population[i][4]) - meanBeta)**2 / \
 		                          float(populationSize)
 		meanEnvScoreVariance += (setup.getEnvScore(population[i][3], population[i][1],
                                                      population[i][4], population[i][0]) - \
@@ -103,7 +103,7 @@ def recordStatistics(outFile, population, envOptimum):
 ##########################################################################################
 def outputlDelCount(population, lDelIndex, outfile):
 	for i in range (len(population)):
-		outfile.write(str(sum(population[i][lDelIndex])) + " ")
+		outfile.write(str(numpy.sum(population[i][lDelIndex])) + " ")
 	# The line below ensures that each group of ldel outputs is 
 	# seperated by a new line
 	outfile.write("\n")
