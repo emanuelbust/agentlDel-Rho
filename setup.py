@@ -32,11 +32,10 @@ import os, sys, random, math, time, pickle, numpy
 #		 passed by the user. 
 #
 ##########################################################################################
-def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, betaGene):
-	# Start r1ho at .2
+def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, betaGene, lDelGeneLength):
+	# Start rho at .2
 	currentMaxFitness = 0
 	rhoCorrespondingToMaxFit = 0
-	lDelGeneLength = len(lDelGene)
 	rho = .2
 	
 	# Multiply rho by .99  until rho < 10**-13
@@ -44,7 +43,7 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 		# Find the fitness given the current rho and the assumption that the environmental
 		# optimum is 0
 		fitness = getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, 
-		                     betaGene, 0)
+		                     betaGene, 0, lDelGeneLength)
 		                     
 	 	# Keep track of the highest fitness and the rho corresponding to it
 		if fitness > currentMaxFitness:
@@ -78,18 +77,13 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 #
 ##########################################################################################
 def getEnvScore(alphaGene, lDelGene, betaGene, rho):
-	if len(alphaGene) != len(betaGene):
-		print("Alpha and beta are different lengths.")
-		print("Alpha: ", alphaGene)
-		print("Beta: ", betaGene)
-		exit(1)
-	
 	envScore = 0.0
-	for i in range(len(alphaGene)):
+	for i in range(alphaGene.size):		
 		if lDelGene[i]:
 			envScore += alphaGene[i]
 		else:
 			envScore += alphaGene[i] + rho * betaGene[i]
+	
 	return envScore
 
 ##########################################################################################
@@ -128,10 +122,8 @@ def getEnvScore(alphaGene, lDelGene, betaGene, rho):
 #		 fitness.
 #
 ##########################################################################################
-def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, envOptimum):
+def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, envOptimum, lDelGeneLength):
 	# Calculate the first three the fitness components
-	lDelGeneLength = len(lDelGene)
-	envScore = getEnvScore(alphaGene, lDelGene, betaGene, rho)
 	lDels = numpy.sum(lDelGene)
 
 	tempDelFitness = max(0, 1 - s * ((rho *  lDels / float(lDelGeneLength)) + \
@@ -139,11 +131,10 @@ def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, e
 	                     pDel / (pDel + pMinusDel)))		
 	permDelFitness = (1 - 23.0/9.0 * mulDel)**lDels
 	proofFitness =  1 / (1 - math.log(rho) * 10**-2.5)
-	envFitness = math.exp(-((envScore - envOptimum)**2 / (2 * .5**2)))
+	envFitness = math.exp(-((getEnvScore(alphaGene, lDelGene, betaGene, rho) - envOptimum)**2 / (2 * .5**2)))
 	
 	# Multiply all the components together and return the result 
-	fitness = tempDelFitness * permDelFitness * proofFitness * envFitness
-	return fitness
+	return tempDelFitness * permDelFitness * proofFitness * envFitness
 
 ##########################################################################################
 #	Name: initializePopulation
@@ -193,25 +184,22 @@ def initializePopulation(populationSize, pOne, s, lDelGeneLength,
 	# and calculates their fitness
 	for i in range(populationSize):
 		# Randomly lDel. Make approximately pOne of the lDels 1's and the rest 0's
-		lDelGene = numpy.array([])
+		lDelGene = numpy.array([0 for j in range(lDelGeneLength)])
 		for j in range(lDelGeneLength):
 			if random.random() < pOne:
-				lDelGene = numpy.append(lDelGene, 1)
-			else:
-				lDelGene = numpy.append(lDelGene, 0)
+				lDelGene[j] = 1
 	
 		# Initialize alpha and beta genes to zeroes
-		alphaGene = numpy.array([0.0 for i in range(alphaGeneLength)])
-		betaGene = numpy.array([0.0 for i in range(betaGeneLength)])
+		alphaGene = numpy.array([0.0 for j in range(alphaGeneLength)])
+		betaGene = numpy.array([0.0 for j in range(betaGeneLength)])
 		
 		# Find the rho value maximizing fitness given the lDel of the individual
-		lDelGene = numpy.array(lDelGene)
 		individualRho = findRhoMaximizingFitness(s, lDelGene, pNonDelToDel, pDelToNonDel, 
-		                                         plDelLociMutation, alphaGene, betaGene)
+		                                         plDelLociMutation, alphaGene, betaGene, lDelGeneLength)
 		
 		# Calculate considering the lDel gene and rho gene 
 		fitness = getFitness(s, lDelGene, pNonDelToDel, pDelToNonDel, plDelLociMutation, 
-							 individualRho, alphaGene, betaGene, 0)
+							 individualRho, alphaGene, betaGene, 0, lDelGeneLength)
 	
 		# An individual consists of a rho gene, an lDel gene, and a fitness
 		# Each is an entry in an myPopSize size array

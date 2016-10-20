@@ -3,56 +3,42 @@ import os, sys, random, math, time, pickle, numpy
 ###############################################################################
 #       Name: recombine
 #
-#       Assumption: It is assumed that the lists passed to the function do not
-#		    not contain objects. If the list does contain objects, the
-#		    function works correctly, but each list involved will have
-#	            a reference to the same object (shallow copy).
+#       Assumption: None
 #
-#       Purpose: A given number of recombination sites are randomly chosen.
-#		 Between each two recombination sites, a corresponding piece
-#		 of list from listOne or listTwo is added. Which list is
-#		 chosen to contribute is random.  
+#       Purpose: Recombine takes two lists and change the contents of a third 
+#			  	 to corresponding chunks of the first two lists. This is done
+#				 by copying over elements from either the first or second list
+#				 to the third in a random fashion.
 #
-#       Arguements: - sites: an integer corresponding to the number of 
-#		      indices where the new list alternates
+#       Arguments: recombined - the array that is made of chunks of the 
+#								  first two arrays
+#					
+#					expectedSegmentLength - the average length of a segment
+#										    that is contributed by list one 
+#											or list two
 #
-#                   - listOne: a list containing information that will be 
-#                              sectioned to form a new list
+#					listOne - the 1st list that contributes to the recombined
+#							  list
 #
-#                   - listTwo: another list containing information that will
-#                              be section off to form a new list
+#					listTwo - the 2nd list that contributes to the recombined
+#							  list
 #
-#       Returns: A new list that is a recombined version of the two lists
-#		 given.
+#       Returns: Nothing
 #
 ###############################################################################
-def recombine(sites, listOne, listTwo):
-	# Check that the two lists are the same size
-	if len(listOne) != len(listTwo):
-		print("Lists are different size")
-		exit(1)
-        
+def recombine(sites, listOne, listTwo, dest, length):
 	# Choose the indices where the segments will alternate
-	length = (listOne)
-	indices = numpy.array([0, len(listOne)])
+	indices = [0, length]
 	for i in range(sites):
-		indices = numpy.insert(indices, 0, random.randint(0, len(listOne)))
-	indices.sort()
+		indices.append(int(random.random() * length))
+	indices.sort()		
 	
 	# Build the new list. Take a section from listTwo first.
-	product = numpy.array([])
-	for i in range(len(indices) - 1):
-		if random.random() <= .5: 
-			product = numpy.append(product, listOne[indices[i]:indices[i + 1]])
+	for i in range(sites + 1):
+		if random.random() < .5: 
+			dest[indices[i]:indices[i + 1]] = listOne[indices[i]:indices[i + 1]]
 		else:
-			product = numpy.append(product, listTwo[indices[i]:indices[i + 1]])
-			
-	# Check that the new list is the size of the two original lists
-	if len(listOne) == len(listTwo) and len(listTwo) == len(product):
-		return product
-	else:
-		print("There's a bug in the recombination code.")
-		exit(1)
+			dest[indices[i]:indices[i + 1]] = listTwo[indices[i]:indices[i + 1]]
 
 ################################################################################
 #       Name: myCopy 
@@ -72,17 +58,17 @@ def recombine(sites, listOne, listTwo):
 def myCopy(origList):
 	newList = []
 	for i in range(len(origList)):
-    		# Append if the item in the list is an integer, string, 
-     		# or boolean
+    	# Append if the item in the list is an integer, string, 
+     	# or boolean
 		if type(origList[i]) is int or type(origList[i]) is str or type(origList[i]) is bool or type(origList[i]) is float:
 			newList.append(origList[i])
-                # Recursively copy the item if it is a list
+        # Recursively copy the item if it is a list
 		elif type(origList[i]) is list:
-                        newList.append(myCopy(origList[i]))
-                # Freak out if some other type of object is in the list
+			newList.append(myCopy(origList[i]))
+        # Freak out if some other type of object is in the list
 		else:
-                       	print("Error: List contains invalid types")
-                        exit(1)
+			print("Error: List contains invalid types")
+			exit(1)
 
 	return newList
 
@@ -116,7 +102,7 @@ def myCopy(origList):
 # 
 ###############################################################################
 def cooption(indiv, pCooption, alphaIndex, betaIndex, population):
-	for i in range(len(population[indiv][alphaIndex])):
+	for i in range(population[indiv][alphaIndex].size):
 		if random.random() < pCooption:
 			population[indiv][alphaIndex][i] += population[indiv][betaIndex][i]
 		
@@ -157,10 +143,7 @@ def cooption(indiv, pCooption, alphaIndex, betaIndex, population):
 #		 individual has been chosen to die.
 #
 ##########################################################################################
-def pickDeadIndiv(selection, population, fitnessIndex):
-	# Calculate how big the population is
-	populationSize = len(population)
-	
+def pickDeadIndiv(selection, population, fitnessIndex, populationSize):	
 	# If selection is on, consider an individual's fitness
 	if selection:
 		# Pick a random individual until their fitness is lower than a random float 
@@ -204,9 +187,7 @@ def pickDeadIndiv(selection, population, fitnessIndex):
 #	Returns: Nothing
 #
 ##########################################################################################
-def replaceDeadWithOffspring(deadIndex, recombination, population):
-	populationSize = len(population)
-	lDelGeneLength = len(population[0][1])
+def replaceDeadWithOffspring(deadIndex, recombination, population, populationSize):
 	if recombination:
 		# Pick two parents
 		mateOne = deadIndex
@@ -217,21 +198,21 @@ def replaceDeadWithOffspring(deadIndex, recombination, population):
 			mateTwo = int(random.random() * populationSize)	
 		
 		# Randomly assign one of the rho values from the parents to the individual
+		population[deadIndex][0] = population[mateOne][0]
 		if random.random() < .5:
-			population[deadIndex][0] = population[mateOne][0]
-		else:
 			population[deadIndex][0] = population[mateTwo][0]
 		
 		# Recombine the parents and then give the offspring the result for 
 		# the lDel, alpha, and beta gene of the osspring  
-		population[deadIndex][1] = recombine(5, population[mateOne][1], 
-							population[mateTwo][1])
+		recombine(5, population[mateOne][1], population[mateTwo][1], 
+				  population[deadIndex][1], population[deadIndex][1].size)
 	
-		population[deadIndex][3] = recombine(3, population[mateOne][3], 
-							population[mateTwo][3])
+		recombine(2, population[mateOne][3], population[mateTwo][3], 
+				  population[deadIndex][3], population[deadIndex][3].size)
+
 				
-		population[deadIndex][4] = recombine(3, population[mateOne][4], 
-							population[mateTwo][4])
+		recombine(2, population[mateOne][4], population[mateTwo][4], 
+				  population[deadIndex][4], population[deadIndex][4].size)
 		
 	else:
 		# Pick an individual to be the parent who isn't the person who just died
@@ -280,8 +261,8 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 
 	if random.random() < plDelMutation:
 		# Pick the locus to change
-		betaLength = len(population[mutantIndex][4])
-		lDelLength = len(population[mutantIndex][1])
+		betaLength = population[mutantIndex][4].size
+		lDelLength = population[mutantIndex][1].size
 		changeLoci = random.randint(0, lDelLength - 1)
 		
 		# The lDel locus has a corresponding beta locus
@@ -326,25 +307,3 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
                 10 / float(alphaLength))	
 	
 		population[mutantIndex][3][changeLoci] += delta	
-
-##########################################################################################
-#       Name: envShift
-#
-#       Assumptions: None
-#
-#       Purpose: This method takes the current environmental optimum, increments it with 
-#		 a number taken from a noram distriubtion a mean of the negative of the 
-#		 current optimum and a standard deviation of four. The mean is that so
-#		 that the optimum doesn't stray too far zero. The standard deviation is
-#		 that just because that's what whoever tweaked it thought was the best 
-#		 paramater 
-#
-#       Arguments: A float called currentOpt that is the current environmental optimum            
-#
-#       Returns: A float that is the incremented previous optimum
-#
-##########################################################################################
-def envShift(currentOpt):
-	# 5 and 4 are paramters that are found to work the best. They're not from an assumption
-	currentOpt += random.gauss((-1 * currentOpt) / float(5), 4)
-	return currentOpt

@@ -84,7 +84,7 @@ else:
 	
 # How man times statstics are to be recorded to text files
 NUMBER_OF_PROGRESS_WRITES = 100
-NUMBER_OF_RESULT_WRITES = generations
+NUMBER_OF_RESULT_WRITES = 100
 NUMBER_OF_POPULATION_WRITES = 100
 NUMBER_OF_LDEL_COUNT_WRITES = 5
 plDelMutation = plDelLociMutation * nucleotidesPerlDel * lDelGeneLength
@@ -118,13 +118,13 @@ while replacementNumber <= replacements:
 	# Shift the environment after a given number of replacements
 	if ((float(replacementNumber) / populationSize) % envOptChangePerGeneration) == 0 \
 	    and (float(replacementNumber) / populationSize) != 0 and environment:
-		envOpt = cycle.envShift(envOpt)
+		envOpt += random.gauss((-1 * envOpt) / float(5), 4)
 	
 	# Kill someone
-	deadIndex = cycle.pickDeadIndiv(selection, population, 2)	
+	deadIndex = cycle.pickDeadIndiv(selection, population, 2, populationSize)	
 	
 	# Make a baby
-	cycle.replaceDeadWithOffspring(deadIndex, recombination, population)
+	cycle.replaceDeadWithOffspring(deadIndex, recombination, population, populationSize)
 	
 	# Mutate the baby
 	cycle.mutateIndividual(deadIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
@@ -137,7 +137,7 @@ while replacementNumber <= replacements:
 	                                      pNonDelToDel, pDelToNonDel, plDelLociMutation, 
 	                                      population[deadIndex][0], 
 	                                      population[deadIndex][3], 
-	                                      population[deadIndex][4], envOpt)
+	                                      population[deadIndex][4], envOpt, lDelGeneLength)
 		
 	# Records numbers decribing the population
 	if replacementNumber % (populationSize * generations / NUMBER_OF_RESULT_WRITES) == 0:
