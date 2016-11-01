@@ -72,43 +72,6 @@ def myCopy(origList):
 
 	return newList
 
-###############################################################################
-#       Name: cooption 
-#
-#       Assumptions: The distribution that the new beta has the assumptions 
-#		     made the Rajon Masel 2011 paper. The equations come 
-#		     specifically from the the supplemental instruction.
-#
-#       Purpose: This functions checks to see whether a cooption event
-#		 happens. A cooption occurs when a stop codon is lost and the
-#		 the coding sequence then permanently includes the cryptic 
-#		 sequence. This manifests itself as an alpha trait being the
-#		 sum of the alpha and beta and a new beta being chosen 
-#		 randomly.
-#
-#       Arguements: indiv - an integer corresponding to the index holding 
-#			    the genetic information of the individual who
-#			    may experience cooption
-#		    pCooption - a float corresponding to the probability of 
-#				a cooption happening
-#		    alphaIndex - an integer corresponding to the index of 
-#				 of the alpha gene in an individual's entry
-#				 in the population array
-#		    betaIndex - an integer corresponding to the index of 
-#                               of the beta gene in an individual's entry
-#                               in the population array
-#
-#       Returns: Nothing
-# 
-###############################################################################
-def cooption(indiv, pCooption, alphaIndex, betaIndex, population):
-	for i in range(population[indiv][alphaIndex].size):
-		if random.random() < pCooption:
-			population[indiv][alphaIndex][i] += population[indiv][betaIndex][i]
-		
-			population[indiv][betaIndex][i] = \
-			random.gauss(0.0, 16.0 / (9.0/25.0))
-	
 ##########################################################################################
 #	Name: pickDeadIndiv
 #
@@ -194,7 +157,7 @@ def replaceDeadWithOffspring(deadIndex, recombination, population, populationSiz
 		while mateOne == deadIndex:
 			mateOne = int(random.random() * populationSize)
 		mateTwo = deadIndex
-		while mateTwo == deadIndex:
+		while mateTwo == deadIndex or mateTwo == mateOne:
 			mateTwo = int(random.random() * populationSize)	
 		
 		# Randomly assign one of the rho values from the parents to the individual
@@ -255,7 +218,7 @@ def replaceDeadWithOffspring(deadIndex, recombination, population, populationSiz
 #
 ##########################################################################################
 def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, 
-		     pBetaMutation, pDelToNonDel, pNonDelToDel):
+		     pBetaMutation, pDelToNonDel, pNonDelToDel, pCooption):
 	if random.random() < pRhoMutation:
 		population[mutantIndex][0] *= 10**random.gauss(0, .2)
 
@@ -279,14 +242,18 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 					population[mutantIndex][1][changeLoci] = 1
 					mutationOccured += 1
 					
-			# THIS DOES BETA MUTATION
 			# Only mutat a beta if an lDel was changed
 			if mutationOccured:
 				# Add a number drawn out of a normal distribution
 				population[mutantIndex][4][changeLoci] += \
 				random.gauss(-1 * population[mutantIndex][4][changeLoci] / 50.0,
-                		10 / float(betaLength))			
-			
+                		10 / float(betaLength))
+				
+				# Check for a cooption mutation
+				if random.random() < pCooption: 
+					population[mutantIndex][3][changeLoci] += population[mutantIndex][4][changeLoci]
+					population[mutantIndex][4][changeLoci] = random.gauss(0.0, 16.0 / (9.0/25.0))
+	
 		else:
 			# Change an lDel locus in the same way as above
 			if population[mutantIndex][1][changeLoci]:
@@ -299,7 +266,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 	# THIF PART DOESN ALPHA MUTATION
 	if random.random() < pAlphaMutation:		
 		# Pick a an alpha locus to change
-		alphaLength = len(population[mutantIndex][3])
+		alphaLength = population[mutantIndex][3].size
 		changeLoci = random.randint(0, alphaLength - 1)
 			
 		# Add another number drawn from a normal distribution

@@ -14,7 +14,7 @@ environment = True
 pNonDelToDel = .4
 pDelToNonDel = .1 
 plDelLociMutation = 10**-8
-delLociFitnessCost = 20
+delLociFitnessCost = 50
 pRhoMutation = 10**-5
 nucleotidesPerlDel = 30
 alphaGeneLength = 10
@@ -128,9 +128,7 @@ while replacementNumber <= replacements:
 	
 	# Mutate the baby
 	cycle.mutateIndividual(deadIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
-			 pDelToNonDel, pNonDelToDel)
-	if coopt:
-		cycle.cooption(deadIndex, pCooption, 3, 4, population)
+			 pDelToNonDel, pNonDelToDel, pCooption)
 	
 	# Calculate the baby's fitness
 	population[deadIndex][2] = setup.getFitness(delLociFitnessCost, population[deadIndex][1], 
