@@ -6,22 +6,18 @@ import os, sys, random, math, time, pickle, numpy
 #       Assumption: None
 #
 #       Purpose: Recombine takes two lists and change the contents of a third 
-#			  	 to corresponding chunks of the first two lists. This is done
-#				 by copying over elements from either the first or second list
-#				 to the third in a random fashion.
+#		 to corresponding chunks of the first two lists. This is done
+#		 by copying over elements from either the first or second list
+#		 to the third in a random fashion.
 #
 #       Arguments: recombined - the array that is made of chunks of the 
-#								  first two arrays
-#					
-#					expectedSegmentLength - the average length of a segment
-#										    that is contributed by list one 
-#											or list two
+#				first two arrays#					
 #
-#					listOne - the 1st list that contributes to the recombined
-#							  list
+#		   listOne - the 1st list that contributes to the recombined
+#			     list
 #
-#					listTwo - the 2nd list that contributes to the recombined
-#							  list
+#		   listTwo - the 2nd list that contributes to the recombined
+#			     list
 #
 #       Returns: Nothing
 #
@@ -73,57 +69,60 @@ def myCopy(origList):
 	return newList
 
 ##########################################################################################
-#	Name: pickDeadIndiv
+#	Name: pickParents
 #
-#	Assumptions: It is assumed that list holding individuals, the ith entry in the list
-#		     corresponds to the ith individual in the population. Furthermore, it is 
-# 		     assumed the fitnessIndex entry in the ith index of the population array
-# 		     is the fitness of the individual. Finally, it is assumed that the 
-#		     fitness of an individual is less than one; if all indviduals in the 
-#		     population have a fitness greater or equal to one, then an infinite 
-#		     loop will occur.
+#	Assumptions: It is assumed that the population has entries 0-populationSize - 1 
 #
-#	Purpose: The simulation this function is used for is one that keeps a constant 
-#		 population size. Therefore, to produce an offspring, an individual must
-#		 "die" or be replaced. This function picks the dead indvidual. If selection
-#		 is enabled, then a random index in the population representing an individual
-#		 will be chosen. If selection is not on, then the first individual to have 
-#		 a fitness less than a random number in the range [0, 1) will be picked as 
-#		 the dead indvidual.
+#	Purpose: pickParents exists for the sake of picking parents to produce an
+#		 offspring. If selection is turned off, then two distinct individuals are
+#		 chosen at random to be parents. If recombination is turned on, the first
+#		 two distinct individuals with a fitness higher than a random number are
+#		 chosen to the parents.
 #
-#	Arguments: selection - a boolean corresponding to whether or not selection will 
-#			       dictate if the person who dies is random or someone whose
-#			       fitness was not high enough
-#		   population - a list containing the individuals of the population and all of
-#				their genetic information
-#		   fitnessIndex - the index in the an in individuals entry in the population 
-#				  list holding the fitness of that individual. 
-#				  I.e. population[indvidual][fitnessIndex] gives individual's
-#				  fitness
+#	Arguments: selection - a boolean corresponding to whether or not selection is
+#			       turned on
 #
-#	Returns: An integer is returned. This integer is greater than zero and less than the
-#		 number of individuals in the population. This integer corresponds to which
-#		 individual has been chosen to die.
+#		   population - a list containing the individuals of the population
+#
+#		   fitnessIndex - the index of an individuals fitness. 
+#				  population[i][fitnessIndex] gives the fitness of 
+#				  individual i
+# 
+#		   populationSize - the number of individuals contained the population.
+#				    len(population) == populationSize 
+#
+#	Returns: A tuple containing two distinct integers in the interval
+#		 [0, populationSize - 1. Each integer corresponds to the the entry of the
+#		 population containg the genetic information of a parent. 
 #
 ##########################################################################################
-def pickDeadIndiv(selection, population, fitnessIndex, populationSize):	
-	# If selection is on, consider an individual's fitness
+def pickParents(selection, population, fitnessIndex, populationSize):
+	# If selection is on, discriminate against low fitness
 	if selection:
-		# Pick a random individual until their fitness is lower than a random float 
-		# between zero and one.
+		# Pick the first mom who has a fitness greater than a random number
 		while True:
-			potientialDeadIndiv = int(random.random() * populationSize) 
-			
-			# If someone's fitness less than a random float, return their index in 
-			# the population list
-			if population[potientialDeadIndiv][fitnessIndex] < random.random():
-				deadIndivIndex = potientialDeadIndiv
+			mom = int(random.random() * populationSize)
+			if population[mom][fitnessIndex] > random.random():
 				break
-		return deadIndivIndex
-	# If selection is not on, then just pick a random person
-	else: 
-		return int(random.random() * populationSize) 
 		
+		# Pick the first dad who has a fitness greater than a random number and isn't already the mom
+		while True:
+			dad = int(random.random() * populationSize)
+                        if population[dad][fitnessIndex] > random.random() and dad != mom:
+                                break
+
+	# If slection is off, don't consider fitness
+	else:
+		# Pick a mom at random
+		mom = int(random.random() * populationSize)
+		
+		# Pick the first dad who isn't already the mom
+		dad = mom
+		while dad == mom:
+			dad = int(random.random() * populationSize)
+	
+	return (mom, dad)
+
 ##########################################################################################
 #	Name: replaceDeadWithOffspring
 #
@@ -133,7 +132,7 @@ def pickDeadIndiv(selection, population, fitnessIndex, populationSize):
 #		     of no recombination, it is assumed that the person who died cannot be
 #                    the parent of the offspring replacing them.
 #
-
+#
 #		 is off, then the offspring gets copies of each of the genes of another 
 #		 individual in the population who is randomly chosen. If it is on, then 
 #		 the offspring gets a combination of different genes from each parent and 
@@ -150,15 +149,13 @@ def pickDeadIndiv(selection, population, fitnessIndex, populationSize):
 #	Returns: Nothing
 #
 ##########################################################################################
-def replaceDeadWithOffspring(deadIndex, recombination, population, populationSize):
+def replaceDeadWithOffspring(deadIndex, recombination, population, populationSize, selection, 
+			     fitnessIndex):
 	if recombination:
 		# Pick two parents
-		mateOne = deadIndex
-		while mateOne == deadIndex:
-			mateOne = int(random.random() * populationSize)
-		mateTwo = deadIndex
-		while mateTwo == deadIndex or mateTwo == mateOne:
-			mateTwo = int(random.random() * populationSize)	
+		parents = pickParents(selection, population, fitnessIndex, populationSize)
+		mateOne = parents[0]
+		mateTwo = parents[1]
 		
 		# Randomly assign one of the rho values from the parents to the individual
 		population[deadIndex][0] = population[mateOne][0]
@@ -172,7 +169,6 @@ def replaceDeadWithOffspring(deadIndex, recombination, population, populationSiz
 	
 		recombine(2, population[mateOne][3], population[mateTwo][3], 
 				  population[deadIndex][3], population[deadIndex][3].size)
-
 				
 		recombine(2, population[mateOne][4], population[mateTwo][4], 
 				  population[deadIndex][4], population[deadIndex][4].size)
@@ -263,7 +259,7 @@ def mutateIndividual(mutantIndex, population, pRhoMutation, plDelMutation, pAlph
 				if random.random() < pNonDelToDel:
                               		population[mutantIndex][1][changeLoci] = 1
 	
-	# THIF PART DOESN ALPHA MUTATION
+	# THIF PART DOES ALPHA MUTATION
 	if random.random() < pAlphaMutation:		
 		# Pick a an alpha locus to change
 		alphaLength = population[mutantIndex][3].size

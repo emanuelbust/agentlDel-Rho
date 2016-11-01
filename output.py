@@ -67,14 +67,15 @@ def recordStatistics(outFile, population, envOptimum):
                                                      population[i][4], population[i][0]) - \
 					 meanEnvScore) / float(populationSize)
 	
-	# Use the variance and mean to find the thirds moment
-	# for i in range(populationSize):
-		# thirdMoment += numpy.sum((population[2] - meanFitness) / meanlDelLociVariance**(1.5))
+	# Use the variance and mean to find the third moment
+	for i in range(populationSize):
+		thirdMoment += (population[i][2] - meanFitness)**(3) / meanFitnessVariance**(1.5)
 
 	# Write the numbers into a text using the join method. 
 	numbers = [meanFitness, meanFitnessVariance, meanlDelLoci, meanlDelLociVariance, 
 	           meanRho, meanRhoVariance, meanAlpha, meanAlphaVariance, meanBeta, 
-	           meanBetaVariance, envOptimum, meanEnvScore, meanEnvScoreVariance]
+	           meanBetaVariance, envOptimum, meanEnvScore, meanEnvScoreVariance,
+		   thirdMoment]
 	data = [str(number) for number in numbers]
 	outFile.write("\t".join(data) + "\n")
 	outFile.flush()

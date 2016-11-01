@@ -105,7 +105,7 @@ results = open(stamp + ".results" , "w")
 columns = ["MeanFitness", "MeanFitnessVariance", "MeanlDels", "MeanlDelsVariance",
            "MeanRho", "MeanRhoVariance", "MeanAlpha", "MeanAlphaVariance", 
            "MeanBeta", "MeanBetaVariance", "EnvOpt", "meanEnvScore", 
-	   "meanEnvScoreVariance"]
+	   "meanEnvScoreVariance", "ThirdMomentFitness"]
 results.write("\t".join(columns) + "\n")
 lDelOutName = stamp + ".out"
 lDelOut = open(lDelOutName, "w")
@@ -120,11 +120,11 @@ while replacementNumber <= replacements:
 	    and (float(replacementNumber) / populationSize) != 0 and environment:
 		envOpt += random.gauss((-1 * envOpt) / float(5), 4)
 	
-	# Kill someone
-	deadIndex = cycle.pickDeadIndiv(selection, population, 2, populationSize)	
+	# Kill someone at random
+	deadIndex = int(random.random() * populationSize)
 	
 	# Make a baby
-	cycle.replaceDeadWithOffspring(deadIndex, recombination, population, populationSize)
+	cycle.replaceDeadWithOffspring(deadIndex, recombination, population, populationSize, selection, 2)
 	
 	# Mutate the baby
 	cycle.mutateIndividual(deadIndex, population, pRhoMutation, plDelMutation, pAlphaMutation, pBetaMutation,
