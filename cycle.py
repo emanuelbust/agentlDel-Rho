@@ -1,4 +1,4 @@
-import os, sys, random, math, time, pickle, numpy
+import random
 
 ###############################################################################
 #       Name: recombine
@@ -108,8 +108,8 @@ def pickParents(selection, population, fitnessIndex, populationSize):
 		# Pick the first dad who has a fitness greater than a random number and isn't already the mom
 		while True:
 			dad = int(random.random() * populationSize)
-                        if population[dad][fitnessIndex] > random.random() and dad != mom:
-                                break
+			if population[dad][fitnessIndex] > random.random() and dad != mom:
+				break
 
 	# If slection is off, don't consider fitness
 	else:

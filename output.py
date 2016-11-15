@@ -1,5 +1,4 @@
-import os, sys, random, math, time, pickle, numpy
-import setup
+import numpy, setup
 
 ##########################################################################################
 #	Name: recordStatistics

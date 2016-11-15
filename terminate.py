@@ -1,5 +1,4 @@
 import csv
-import math
 
 ##########################################################################################
 #       Name: getlDels
@@ -105,7 +104,7 @@ def averageDiff(values):
 def isDoneLax(threshold, inFile):
 	# Check for a valid threshold
 	if threshold < 0:
-		print "Threshold values must be positive."
+		print("Threshold values must be positive.")
 		exit(1)
 
 	# Compare the sum to the threshold value
@@ -139,7 +138,7 @@ def isDoneLax(threshold, inFile):
 def isDoneStrict(threshold, inFile):
 	# Check for a valid threshold
 	if threshold < 0:
-		print "Threshold values must be positive."
+		print ("Threshold values must be positive.")
 		exit(1)
 
 	# Find the range of the last n lDels
