@@ -78,11 +78,10 @@ def findRhoMaximizingFitness(s, lDelGene, pDel, pMinusDel, mulDel, alphaGene, be
 ##########################################################################################
 def getEnvScore(alphaGene, lDelGene, betaGene, rho):
 	envScore = 0.0
-	for i in range(alphaGene.size):		
-		if lDelGene[i]:
-			envScore += alphaGene[i]
-		else:
-			envScore += alphaGene[i] + rho * betaGene[i]
+	for i in range(alphaGene.size):
+		envScore += alphaGene[i]		
+		if not lDelGene[i]:
+			envScore += rho * betaGene[i]
 	
 	return envScore
 
@@ -124,14 +123,13 @@ def getEnvScore(alphaGene, lDelGene, betaGene, rho):
 ##########################################################################################
 def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, envOptimum, lDelGeneLength):
 	# Calculate the first three the fitness components
-	lDels = numpy.sum(lDelGene)
+	lDels = float(numpy.sum(lDelGene))
+	lDelProp = lDels / lDelGeneLength	
 
-	tempDelFitness = max(0, 1 - s * ((rho *  lDels / float(lDelGeneLength)) + \
-	                     (1 - lDels / float(lDelGeneLength)) * rho**2 * \
-	                     pDel / (pDel + pMinusDel)))		
-	permDelFitness = (1 - 23.0/9.0 * mulDel)**lDels
-	proofFitness =  1 / (1 - math.log(rho) * 10**-2.5)
-	envFitness = math.exp(-((getEnvScore(alphaGene, lDelGene, betaGene, rho) - envOptimum)**2 / (2 * .5**2)))
+	tempDelFitness = ( max(0, 1 - s * ((rho *  lDelProp) + (1 - lDelProp) * rho * rho * pDel / (pDel + pMinusDel))) )		
+	permDelFitness = ( (1 - 23.0/9.0 * mulDel)**lDels )
+	proofFitness =  ( 1 / (1 - math.log(rho) * 10**-2.5) )
+	envFitness = ( math.exp(-((getEnvScore(alphaGene, lDelGene, betaGene, rho) - envOptimum)**2 / (2 * .5**2))) )
 	
 	# Multiply all the components together and return the result 
 	return tempDelFitness * permDelFitness * proofFitness * envFitness
