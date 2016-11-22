@@ -177,19 +177,19 @@ def initializePopulation(populationSize, pOne, s, lDelGeneLength,
                          betaGeneLength):
 
 	# Store the myPop as a list
-	myPop = []                
+	myPop = [0] * populationSize                
 	# Creates rho and lDel genes, in the form of two arrays, for each individual 
 	# and calculates their fitness
 	for i in range(populationSize):
 		# Randomly lDel. Make approximately pOne of the lDels 1's and the rest 0's
-		lDelGene = numpy.array([0 for j in range(lDelGeneLength)])
+		lDelGene = numpy.array([0] * lDelGeneLength)
 		for j in range(lDelGeneLength):
 			if random.random() < pOne:
 				lDelGene[j] = 1
 	
 		# Initialize alpha and beta genes to zeroes
-		alphaGene = numpy.array([0.0 for j in range(alphaGeneLength)])
-		betaGene = numpy.array([0.0 for j in range(betaGeneLength)])
+		alphaGene = numpy.array([0.0] * alphaGeneLength)
+		betaGene = numpy.array([0.0] * betaGeneLength)
 		
 		# Find the rho value maximizing fitness given the lDel of the individual
 		individualRho = findRhoMaximizingFitness(s, lDelGene, pNonDelToDel, pDelToNonDel, 
@@ -201,7 +201,7 @@ def initializePopulation(populationSize, pOne, s, lDelGeneLength,
 	
 		# An individual consists of a rho gene, an lDel gene, and a fitness
 		# Each is an entry in an myPopSize size array
-		myPop.append([individualRho, lDelGene, fitness, alphaGene, betaGene])
+		myPop[i] = [individualRho, lDelGene, fitness, alphaGene, betaGene]
 	
 	# Return a reference to the newly made population	
 	return myPop

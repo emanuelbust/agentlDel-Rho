@@ -1,518 +1,516 @@
-[Thu Nov 17 13:59:13 2016]: Program started...
+[Tue Nov 22 14:38:11 2016]: Program started...
 ('Recombinaton: ', 1, ' | Directory: ', 'test/', ' | Population Size: ', 500, ' | Number of lDels: ', 500, ' | Generations: ', 1000, ' | Initial lDel Frequency: ', 0.0, ' | Replication: ', 1)
-[Thu Nov 17 14:00:53 2016]: Population initialized...
-[Thu Nov 17 14:00:54 2016]: 1% complete
-[Thu Nov 17 14:00:55 2016]: 2% complete
-[Thu Nov 17 14:00:57 2016]: 3% complete
-[Thu Nov 17 14:00:58 2016]: 4% complete
-[Thu Nov 17 14:00:59 2016]: 5% complete
-[Thu Nov 17 14:01:01 2016]: 6% complete
-[Thu Nov 17 14:01:02 2016]: 7% complete
-[Thu Nov 17 14:01:03 2016]: 8% complete
-[Thu Nov 17 14:01:05 2016]: 9% complete
-[Thu Nov 17 14:01:06 2016]: 10% complete
-[Thu Nov 17 14:01:08 2016]: 11% complete
-[Thu Nov 17 14:01:09 2016]: 12% complete
-[Thu Nov 17 14:01:10 2016]: 13% complete
-[Thu Nov 17 14:01:12 2016]: 14% complete
-[Thu Nov 17 14:01:13 2016]: 15% complete
-[Thu Nov 17 14:01:14 2016]: 16% complete
-[Thu Nov 17 14:01:16 2016]: 17% complete
-[Thu Nov 17 14:01:17 2016]: 18% complete
-[Thu Nov 17 14:01:19 2016]: 19% complete
-[Thu Nov 17 14:01:20 2016]: 20% complete
-[Thu Nov 17 14:01:21 2016]: 21% complete
-[Thu Nov 17 14:01:23 2016]: 22% complete
-[Thu Nov 17 14:01:24 2016]: 23% complete
-[Thu Nov 17 14:01:25 2016]: 24% complete
-[Thu Nov 17 14:01:27 2016]: 25% complete
-[Thu Nov 17 14:01:28 2016]: 26% complete
-[Thu Nov 17 14:01:30 2016]: 27% complete
-[Thu Nov 17 14:01:31 2016]: 28% complete
-[Thu Nov 17 14:01:32 2016]: 28% complete
-[Thu Nov 17 14:01:34 2016]: 30% complete
-[Thu Nov 17 14:01:35 2016]: 31% complete
-[Thu Nov 17 14:01:36 2016]: 32% complete
-[Thu Nov 17 14:01:38 2016]: 33% complete
-[Thu Nov 17 14:01:39 2016]: 34% complete
-[Thu Nov 17 14:01:41 2016]: 35% complete
-[Thu Nov 17 14:01:42 2016]: 36% complete
-[Thu Nov 17 14:01:43 2016]: 37% complete
-[Thu Nov 17 14:01:45 2016]: 38% complete
-[Thu Nov 17 14:01:46 2016]: 39% complete
-[Thu Nov 17 14:01:47 2016]: 40% complete
-[Thu Nov 17 14:01:49 2016]: 41% complete
-[Thu Nov 17 14:01:50 2016]: 42% complete
-[Thu Nov 17 14:01:52 2016]: 43% complete
-[Thu Nov 17 14:01:53 2016]: 44% complete
-[Thu Nov 17 14:01:54 2016]: 45% complete
-[Thu Nov 17 14:01:56 2016]: 46% complete
-[Thu Nov 17 14:01:57 2016]: 47% complete
-[Thu Nov 17 14:01:58 2016]: 48% complete
-[Thu Nov 17 14:02:00 2016]: 49% complete
-[Thu Nov 17 14:02:01 2016]: 50% complete
-[Thu Nov 17 14:02:03 2016]: 51% complete
-[Thu Nov 17 14:02:04 2016]: 52% complete
-[Thu Nov 17 14:02:05 2016]: 53% complete
-[Thu Nov 17 14:02:07 2016]: 54% complete
-[Thu Nov 17 14:02:08 2016]: 55% complete
-[Thu Nov 17 14:02:09 2016]: 56% complete
-[Thu Nov 17 14:02:11 2016]: 56% complete
-[Thu Nov 17 14:02:12 2016]: 57% complete
-[Thu Nov 17 14:02:14 2016]: 59% complete
-[Thu Nov 17 14:02:15 2016]: 60% complete
-[Thu Nov 17 14:02:16 2016]: 61% complete
-[Thu Nov 17 14:02:18 2016]: 62% complete
-[Thu Nov 17 14:02:19 2016]: 63% complete
-[Thu Nov 17 14:02:20 2016]: 64% complete
-[Thu Nov 17 14:02:22 2016]: 65% complete
-[Thu Nov 17 14:02:23 2016]: 66% complete
-[Thu Nov 17 14:02:25 2016]: 67% complete
-[Thu Nov 17 14:02:26 2016]: 68% complete
-[Thu Nov 17 14:02:27 2016]: 69% complete
-[Thu Nov 17 14:02:29 2016]: 70% complete
-[Thu Nov 17 14:02:30 2016]: 71% complete
-[Thu Nov 17 14:02:31 2016]: 72% complete
-[Thu Nov 17 14:02:33 2016]: 73% complete
-[Thu Nov 17 14:02:34 2016]: 74% complete
-[Thu Nov 17 14:02:36 2016]: 75% complete
-[Thu Nov 17 14:02:37 2016]: 76% complete
-[Thu Nov 17 14:02:38 2016]: 77% complete
-[Thu Nov 17 14:02:40 2016]: 78% complete
-[Thu Nov 17 14:02:41 2016]: 79% complete
-[Thu Nov 17 14:02:42 2016]: 80% complete
-[Thu Nov 17 14:02:44 2016]: 81% complete
-[Thu Nov 17 14:02:45 2016]: 82% complete
-[Thu Nov 17 14:02:47 2016]: 83% complete
-[Thu Nov 17 14:02:48 2016]: 84% complete
-[Thu Nov 17 14:02:49 2016]: 85% complete
-[Thu Nov 17 14:02:51 2016]: 86% complete
-[Thu Nov 17 14:02:52 2016]: 87% complete
-[Thu Nov 17 14:02:53 2016]: 88% complete
-[Thu Nov 17 14:02:55 2016]: 89% complete
-[Thu Nov 17 14:02:56 2016]: 90% complete
-[Thu Nov 17 14:02:58 2016]: 91% complete
-[Thu Nov 17 14:02:59 2016]: 92% complete
-[Thu Nov 17 14:03:00 2016]: 93% complete
-[Thu Nov 17 14:03:02 2016]: 94% complete
-[Thu Nov 17 14:03:03 2016]: 95% complete
-[Thu Nov 17 14:03:04 2016]: 96% complete
-[Thu Nov 17 14:03:06 2016]: 97% complete
-[Thu Nov 17 14:03:07 2016]: 98% complete
-[Thu Nov 17 14:03:09 2016]: 99% complete
-[Thu Nov 17 14:03:10 2016]: 100% complete
-[Thu Nov 17 14:03:11 2016]: Done
-Population file: 1479416453.57_rec=1_n=500_lTot=500_initLdelFreq=0.0_cooption=0_replicateNumber=1.pop
-         77318580 function calls (74465089 primitive calls) in 238.042 seconds
+[Tue Nov 22 14:39:10 2016]: Population initialized...
+[Tue Nov 22 14:39:11 2016]: 1% complete
+[Tue Nov 22 14:39:12 2016]: 2% complete
+[Tue Nov 22 14:39:13 2016]: 3% complete
+[Tue Nov 22 14:39:14 2016]: 4% complete
+[Tue Nov 22 14:39:16 2016]: 5% complete
+[Tue Nov 22 14:39:17 2016]: 6% complete
+[Tue Nov 22 14:39:18 2016]: 7% complete
+[Tue Nov 22 14:39:19 2016]: 8% complete
+[Tue Nov 22 14:39:20 2016]: 9% complete
+[Tue Nov 22 14:39:21 2016]: 10% complete
+[Tue Nov 22 14:39:23 2016]: 11% complete
+[Tue Nov 22 14:39:24 2016]: 12% complete
+[Tue Nov 22 14:39:25 2016]: 13% complete
+[Tue Nov 22 14:39:26 2016]: 14% complete
+[Tue Nov 22 14:39:27 2016]: 15% complete
+[Tue Nov 22 14:39:28 2016]: 16% complete
+[Tue Nov 22 14:39:30 2016]: 17% complete
+[Tue Nov 22 14:39:31 2016]: 18% complete
+[Tue Nov 22 14:39:32 2016]: 19% complete
+[Tue Nov 22 14:39:33 2016]: 20% complete
+[Tue Nov 22 14:39:34 2016]: 21% complete
+[Tue Nov 22 14:39:35 2016]: 22% complete
+[Tue Nov 22 14:39:37 2016]: 23% complete
+[Tue Nov 22 14:39:38 2016]: 24% complete
+[Tue Nov 22 14:39:39 2016]: 25% complete
+[Tue Nov 22 14:39:40 2016]: 26% complete
+[Tue Nov 22 14:39:41 2016]: 27% complete
+[Tue Nov 22 14:39:43 2016]: 28% complete
+[Tue Nov 22 14:39:44 2016]: 28% complete
+[Tue Nov 22 14:39:45 2016]: 30% complete
+[Tue Nov 22 14:39:46 2016]: 31% complete
+[Tue Nov 22 14:39:47 2016]: 32% complete
+[Tue Nov 22 14:39:48 2016]: 33% complete
+[Tue Nov 22 14:39:50 2016]: 34% complete
+[Tue Nov 22 14:39:51 2016]: 35% complete
+[Tue Nov 22 14:39:52 2016]: 36% complete
+[Tue Nov 22 14:39:53 2016]: 37% complete
+[Tue Nov 22 14:39:54 2016]: 38% complete
+[Tue Nov 22 14:39:55 2016]: 39% complete
+[Tue Nov 22 14:39:57 2016]: 40% complete
+[Tue Nov 22 14:39:58 2016]: 41% complete
+[Tue Nov 22 14:39:59 2016]: 42% complete
+[Tue Nov 22 14:40:00 2016]: 43% complete
+[Tue Nov 22 14:40:01 2016]: 44% complete
+[Tue Nov 22 14:40:02 2016]: 45% complete
+[Tue Nov 22 14:40:04 2016]: 46% complete
+[Tue Nov 22 14:40:05 2016]: 47% complete
+[Tue Nov 22 14:40:06 2016]: 48% complete
+[Tue Nov 22 14:40:07 2016]: 49% complete
+[Tue Nov 22 14:40:08 2016]: 50% complete
+[Tue Nov 22 14:40:09 2016]: 51% complete
+[Tue Nov 22 14:40:11 2016]: 52% complete
+[Tue Nov 22 14:40:12 2016]: 53% complete
+[Tue Nov 22 14:40:13 2016]: 54% complete
+[Tue Nov 22 14:40:14 2016]: 55% complete
+[Tue Nov 22 14:40:15 2016]: 56% complete
+[Tue Nov 22 14:40:17 2016]: 56% complete
+[Tue Nov 22 14:40:18 2016]: 57% complete
+[Tue Nov 22 14:40:19 2016]: 59% complete
+[Tue Nov 22 14:40:20 2016]: 60% complete
+[Tue Nov 22 14:40:21 2016]: 61% complete
+[Tue Nov 22 14:40:22 2016]: 62% complete
+[Tue Nov 22 14:40:24 2016]: 63% complete
+[Tue Nov 22 14:40:25 2016]: 64% complete
+[Tue Nov 22 14:40:26 2016]: 65% complete
+[Tue Nov 22 14:40:27 2016]: 66% complete
+[Tue Nov 22 14:40:28 2016]: 67% complete
+[Tue Nov 22 14:40:29 2016]: 68% complete
+[Tue Nov 22 14:40:31 2016]: 69% complete
+[Tue Nov 22 14:40:32 2016]: 70% complete
+[Tue Nov 22 14:40:33 2016]: 71% complete
+[Tue Nov 22 14:40:34 2016]: 72% complete
+[Tue Nov 22 14:40:35 2016]: 73% complete
+[Tue Nov 22 14:40:36 2016]: 74% complete
+[Tue Nov 22 14:40:38 2016]: 75% complete
+[Tue Nov 22 14:40:39 2016]: 76% complete
+[Tue Nov 22 14:40:40 2016]: 77% complete
+[Tue Nov 22 14:40:41 2016]: 78% complete
+[Tue Nov 22 14:40:42 2016]: 79% complete
+[Tue Nov 22 14:40:43 2016]: 80% complete
+[Tue Nov 22 14:40:45 2016]: 81% complete
+[Tue Nov 22 14:40:46 2016]: 82% complete
+[Tue Nov 22 14:40:47 2016]: 83% complete
+[Tue Nov 22 14:40:48 2016]: 84% complete
+[Tue Nov 22 14:40:49 2016]: 85% complete
+[Tue Nov 22 14:40:51 2016]: 86% complete
+[Tue Nov 22 14:40:52 2016]: 87% complete
+[Tue Nov 22 14:40:53 2016]: 88% complete
+[Tue Nov 22 14:40:54 2016]: 89% complete
+[Tue Nov 22 14:40:55 2016]: 90% complete
+[Tue Nov 22 14:40:56 2016]: 91% complete
+[Tue Nov 22 14:40:58 2016]: 92% complete
+[Tue Nov 22 14:40:59 2016]: 93% complete
+[Tue Nov 22 14:41:00 2016]: 94% complete
+[Tue Nov 22 14:41:01 2016]: 95% complete
+[Tue Nov 22 14:41:02 2016]: 96% complete
+[Tue Nov 22 14:41:03 2016]: 97% complete
+[Tue Nov 22 14:41:05 2016]: 98% complete
+[Tue Nov 22 14:41:06 2016]: 99% complete
+[Tue Nov 22 14:41:07 2016]: 100% complete
+[Tue Nov 22 14:41:08 2016]: Done
+Population file: 1479850750.84_rec=1_n=500_lTot=500_initLdelFreq=0.0_cooption=0_replicateNumber=1.pop
+         69866786 function calls (67213295 primitive calls) in 176.644 seconds
 
    Ordered by: internal time
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-  1910000   67.437    0.000  135.612    0.000 setup.py:124(getFitness)
-  2010000   41.660    0.000   42.912    0.000 setup.py:79(getEnvScore)
-  2502845   41.363    0.000   41.363    0.000 {repr}
-  2212500   16.900    0.000   16.900    0.000 {method 'reduce' of 'numpy.ufunc' objects}
-  1500000   16.052    0.000   20.093    0.000 cycle.py:25(recombine)
-2452900/100    6.264    0.000   63.339    0.633 pickle.py:269(save)
-        2    3.748    1.874  238.043  119.022 main.py:1(<module>)
-  4658015    3.580    0.000    3.580    0.000 {method 'write' of 'file' objects}
-  2212500    3.384    0.000   25.141    0.000 fromnumeric.py:1422(sum)
-  2212500    2.804    0.000   19.704    0.000 _methods.py:16(_sum)
-  1910000    2.765    0.000    2.765    0.000 {max}
-      100    2.501    0.025    7.300    0.073 output.py:27(recordStatistics)
-  1101600    2.424    0.000    4.301    0.000 pickle.py:227(memoize)
-  5012385    2.378    0.000    2.378    0.000 {range}
-   500000    2.169    0.000   24.640    0.000 cycle.py:152(replaceDeadWithOffspring)
-650400/350000    2.166    0.000   54.840    0.000 pickle.py:532(save_tuple)
-   500000    2.151    0.000    2.332    0.000 cycle.py:99(pickParents)
-  2416134    2.100    0.000    2.100    0.000 {isinstance}
-      500    1.717    0.003  100.224    0.200 setup.py:35(findRhoMaximizingFitness)
- 15289661    1.678    0.000    1.678    0.000 {method 'random' of '_random.Random' objects}
-   200200    1.603    0.000    1.603    0.000 {method '__reduce_ex__' of 'object' objects}
-  1910172    1.480    0.000    1.480    0.000 {math.log}
-  1500000    1.023    0.000    1.023    0.000 {method 'sort' of 'list' objects}
-  4406690    0.897    0.000    0.897    0.000 {method 'get' of 'dict' objects}
-  4501877    0.726    0.000    0.726    0.000 {method 'append' of 'list' objects}
-  5306500    0.694    0.000    0.694    0.000 {id}
-  1910001    0.680    0.000    0.680    0.000 {math.exp}
-200200/200000    0.671    0.000   58.695    0.000 pickle.py:345(save_reduce)
-  1101600    0.620    0.000    0.832    0.000 pickle.py:250(put)
-   200500    0.528    0.000   43.465    0.000 pickle.py:480(save_string)
-       99    0.499    0.005    0.499    0.005 {posix.system}
-   699500    0.461    0.000    0.581    0.000 pickle.py:260(get)
-   500000    0.458    0.000    0.604    0.000 cycle.py:216(mutateIndividual)
-   451200    0.428    0.000    0.751    0.000 pickle.py:437(save_int)
-50100/100    0.332    0.000   63.333    0.633 pickle.py:608(_batch_appends)
-  2452900    0.321    0.000    0.321    0.000 pickle.py:333(persistent_id)
-1953298/1953275    0.258    0.000    0.258    0.000 {len}
-   200202    0.206    0.000    0.206    0.000 {hasattr}
-      100    0.183    0.002   63.524    0.635 pickle.py:1369(dump)
-   200229    0.125    0.000    0.125    0.000 {issubclass}
-50100/100    0.112    0.000   63.337    0.633 pickle.py:591(save_list)
+  2010000   42.046    0.000   43.189    0.000 setup.py:79(getEnvScore)
+  2252845   41.366    0.000   41.366    0.000 {repr}
+  1910000   15.860    0.000   80.610    0.000 setup.py:124(getFitness)
+  2212500   15.573    0.000   15.573    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+  1500000   14.834    0.000   17.933    0.000 cycle.py:25(recombine)
+2252900/100    5.661    0.000   61.189    0.612 pickle.py:269(save)
+        2    3.493    1.747  176.645   88.323 main.py:1(<module>)
+  4257915    3.372    0.000    3.372    0.000 {method 'write' of 'file' objects}
+  2212500    3.093    0.000   23.153    0.000 fromnumeric.py:1422(sum)
+  2212500    2.649    0.000   18.222    0.000 _methods.py:16(_sum)
+  5010885    2.256    0.000    2.256    0.000 {range}
+      100    2.226    0.022    7.050    0.070 output.py:27(recordStatistics)
+   500000    2.177    0.000   21.528    0.000 cycle.py:150(replaceDeadWithOffspring)
+   951500    2.141    0.000    3.791    0.000 pickle.py:227(memoize)
+600400/300000    1.994    0.000   53.764    0.000 pickle.py:532(save_tuple)
+  2366134    1.876    0.000    1.876    0.000 {isinstance}
+ 15290983    1.439    0.000    1.439    0.000 {method 'random' of '_random.Random' objects}
+  1910000    1.344    0.000    1.344    0.000 {max}
+   150200    1.245    0.000    1.245    0.000 {method '__reduce_ex__' of 'object' objects}
+  1910158    1.210    0.000    1.210    0.000 {math.log}
+   500000    1.200    0.000    1.372    0.000 cycle.py:97(pickParents)
+      500    1.179    0.002   59.109    0.118 setup.py:35(findRhoMaximizingFitness)
+  1500000    1.046    0.000    1.046    0.000 {method 'sort' of 'list' objects}
+  4056590    0.792    0.000    0.792    0.000 {method 'get' of 'dict' objects}
+  1910001    0.657    0.000    0.657    0.000 {math.exp}
+  4756300    0.628    0.000    0.628    0.000 {id}
+   951500    0.561    0.000    0.743    0.000 pickle.py:250(put)
+150200/150000    0.541    0.000   57.008    0.000 pickle.py:345(save_reduce)
+       99    0.458    0.005    0.458    0.005 {posix.system}
+   500000    0.453    0.000    0.591    0.000 cycle.py:214(mutateIndividual)
+   451200    0.436    0.000    0.758    0.000 pickle.py:437(save_int)
+   150500    0.421    0.000   43.026    0.000 pickle.py:480(save_string)
+   599600    0.406    0.000    0.508    0.000 pickle.py:260(get)
+   150202    0.314    0.000    0.314    0.000 {hasattr}
+  2252900    0.298    0.000    0.298    0.000 pickle.py:333(persistent_id)
+50100/100    0.275    0.000   61.181    0.612 pickle.py:608(_batch_appends)
+1703198/1703175    0.224    0.000    0.224    0.000 {len}
+   100000    0.113    0.000    0.466    0.000 pickle.py:473(save_float)
+50100/100    0.112    0.000   61.186    0.612 pickle.py:591(save_list)
+      100    0.110    0.001   61.302    0.613 pickle.py:1369(dump)
+   150229    0.098    0.000    0.098    0.000 {issubclass}
    150000    0.089    0.000    0.171    0.000 pickle.py:430(save_bool)
-   201412    0.080    0.000    0.080    0.000 {getattr}
-        1    0.073    0.073  100.408  100.408 setup.py:176(initializePopulation)
-    50000    0.054    0.000    0.239    0.000 pickle.py:473(save_float)
-     1538    0.048    0.000    0.048    0.000 {numpy.core.multiarray.array}
-    50100    0.015    0.000    0.015    0.000 {iter}
-      102    0.011    0.000    0.011    0.000 {open}
-     2500    0.011    0.000    0.013    0.000 arrayprint.py:335(array2string)
-        5    0.008    0.002    0.050    0.010 output.py:109(outputlDelCount)
-      103    0.007    0.000    0.007    0.000 {time.asctime}
+        1    0.055    0.055   59.249   59.249 setup.py:175(initializePopulation)
+   151212    0.049    0.000    0.049    0.000 {getattr}
+     1538    0.044    0.000    0.044    0.000 {numpy.core.multiarray.array}
+        1    0.020    0.020    0.021    0.021 numeric.py:1(<module>)
+        2    0.019    0.009    0.065    0.033 __init__.py:2(<module>)
+    50100    0.014    0.000    0.014    0.000 {iter}
+        2    0.011    0.005    0.097    0.048 __init__.py:1(<module>)
+     2500    0.011    0.000    0.012    0.000 arrayprint.py:335(array2string)
+      102    0.010    0.000    0.010    0.000 {open}
+        1    0.010    0.010    0.010    0.010 __init__.py:88(<module>)
+        5    0.008    0.002    0.048    0.010 output.py:109(outputlDelCount)
+        1    0.007    0.007    0.007    0.007 __init__.py:10(<module>)
+        1    0.007    0.007    0.031    0.031 __init__.py:15(<module>)
+        1    0.006    0.006    0.006    0.006 case.py:1(<module>)
       271    0.005    0.000    0.007    0.000 function_base.py:3220(add_newdoc)
-        1    0.004    0.004    0.004    0.004 csv.py:4(<module>)
-      203    0.004    0.000    0.004    0.000 {method 'flush' of 'file' objects}
-        2    0.004    0.002    0.018    0.009 __init__.py:2(<module>)
+        1    0.005    0.005    0.070    0.070 type_check.py:3(<module>)
+        1    0.005    0.005    0.006    0.006 npyio.py:1(<module>)
+      300    0.004    0.000    0.011    0.000 pickle.py:730(save_global)
+        1    0.004    0.004    0.013    0.013 __init__.py:45(<module>)
+      103    0.004    0.000    0.004    0.000 {time.asctime}
         1    0.004    0.004    0.004    0.004 hashlib.py:73(<module>)
      2500    0.004    0.000    0.016    0.000 numeric.py:1437(array_str)
         1    0.004    0.004    0.005    0.005 polynomial.py:54(<module>)
-        1    0.003    0.003    0.004    0.004 hermite.py:59(<module>)
-        6    0.003    0.001    0.004    0.001 {method 'sub' of '_sre.SRE_Pattern' objects}
+        1    0.004    0.004    0.006    0.006 index_tricks.py:1(<module>)
         1    0.003    0.003    0.004    0.004 laguerre.py:59(<module>)
+        6    0.003    0.001    0.004    0.001 {method 'sub' of '_sre.SRE_Pattern' objects}
         1    0.003    0.003    0.004    0.004 chebyshev.py:87(<module>)
-        1    0.003    0.003    0.004    0.004 numeric.py:1(<module>)
         1    0.003    0.003    0.004    0.004 legendre.py:83(<module>)
+        1    0.003    0.003    0.004    0.004 hermite.py:59(<module>)
         1    0.003    0.003    0.004    0.004 hermite_e.py:59(<module>)
-      400    0.003    0.000    0.007    0.000 pickle.py:730(save_global)
-      397    0.002    0.000    0.002    0.000 random.py:173(randrange)
-      340    0.002    0.000    0.003    0.000 random.py:556(gauss)
-      397    0.002    0.000    0.004    0.000 random.py:237(randint)
-        2    0.002    0.001    0.026    0.013 __init__.py:1(<module>)
-        1    0.002    0.002    0.002    0.002 __init__.py:88(<module>)
-      100    0.001    0.000    0.001    0.000 pickle.py:173(__init__)
-        1    0.001    0.001    0.002    0.002 __init__.py:4(<module>)
-        1    0.001    0.001    0.067    0.067 __init__.py:106(<module>)
+        1    0.003    0.003    0.003    0.003 __init__.py:44(<module>)
+      381    0.002    0.000    0.002    0.000 random.py:173(randrange)
+        1    0.002    0.002    0.002    0.002 csv.py:4(<module>)
+      300    0.002    0.000    0.002    0.000 {__import__}
+      312    0.002    0.000    0.002    0.000 random.py:556(gauss)
+      381    0.002    0.000    0.004    0.000 random.py:237(randint)
+      100    0.002    0.000    0.002    0.000 pickle.py:173(__init__)
+      203    0.002    0.000    0.002    0.000 {method 'flush' of 'file' objects}
+        1    0.002    0.002    0.002    0.002 __init__.py:4(<module>)
+        1    0.001    0.001    0.153    0.153 __init__.py:106(<module>)
         1    0.001    0.001    0.004    0.004 __init__.py:38(<module>)
         1    0.001    0.001    0.002    0.002 core.py:21(<module>)
-        1    0.001    0.001    0.025    0.025 __init__.py:15(<module>)
+        1    0.001    0.001    0.002    0.002 pickle.py:25(<module>)
+      152    0.001    0.000    0.001    0.000 {method 'join' of 'str' objects}
         1    0.001    0.001    0.001    0.001 utils.py:1(<module>)
         2    0.001    0.000    0.001    0.001 collections.py:282(namedtuple)
+      100    0.001    0.000   61.190    0.612 pickle.py:220(dump)
         1    0.001    0.001    0.001    0.001 linalg.py:10(<module>)
-        1    0.001    0.001    0.005    0.005 __init__.py:45(<module>)
-     2500    0.001    0.000    0.001    0.000 {method 'item' of 'numpy.ndarray' objects}
         1    0.001    0.001    0.005    0.005 random.py:40(<module>)
-      400    0.001    0.000    0.001    0.000 {__import__}
-        1    0.001    0.001    0.068    0.068 setup.py:1(<module>)
-    18/12    0.001    0.000    0.001    0.000 sre_parse.py:380(_parse)
-      100    0.001    0.000   63.339    0.633 pickle.py:220(dump)
-        1    0.001    0.001    0.001    0.001 case.py:1(<module>)
       642    0.001    0.000    0.001    0.000 string.py:158(convert)
-        1    0.001    0.001    0.003    0.003 index_tricks.py:1(<module>)
-        1    0.001    0.001    0.001    0.001 npyio.py:1(<module>)
-        1    0.000    0.000    0.001    0.001 collections.py:1(<module>)
-      152    0.000    0.000    0.001    0.000 {method 'join' of 'str' objects}
+     2500    0.001    0.000    0.001    0.000 {method 'item' of 'numpy.ndarray' objects}
+        1    0.001    0.001    0.154    0.154 setup.py:1(<module>)
+    18/12    0.001    0.000    0.001    0.000 sre_parse.py:380(_parse)
+        1    0.001    0.001    0.001    0.001 collections.py:1(<module>)
        18    0.000    0.000    0.001    0.000 sre_compile.py:208(_optimize_charset)
         1    0.000    0.000    0.000    0.000 heapq.py:31(<module>)
-        1    0.000    0.000    0.001    0.001 pickle.py:25(<module>)
-        1    0.000    0.000    0.002    0.002 ctypeslib.py:51(<module>)
         2    0.000    0.000    0.002    0.001 function_base.py:1(<module>)
-        1    0.000    0.000    0.001    0.001 _datasource.py:33(<module>)
+        1    0.000    0.000    0.003    0.003 ctypeslib.py:51(<module>)
         1    0.000    0.000    0.000    0.000 arrayprint.py:4(<module>)
+        1    0.000    0.000    0.001    0.001 _datasource.py:33(<module>)
     40/12    0.000    0.000    0.001    0.000 sre_compile.py:33(_compile)
-      600    0.000    0.000    0.001    0.000 pickle.py:426(save_none)
       304    0.000    0.000    0.000    0.000 sre_parse.py:183(__next)
         1    0.000    0.000    0.000    0.000 utils.py:3(<module>)
+      600    0.000    0.000    0.001    0.000 pickle.py:426(save_none)
         1    0.000    0.000    0.001    0.001 decorators.py:15(<module>)
-        1    0.000    0.000    0.001    0.001 __init__.py:44(<module>)
         1    0.000    0.000    0.000    0.000 defmatrix.py:1(<module>)
+        1    0.000    0.000    0.001    0.001 numerictypes.py:82(<module>)
+        1    0.000    0.000    0.104    0.104 add_newdocs.py:9(<module>)
         1    0.000    0.000    0.002    0.002 result.py:1(<module>)
         1    0.000    0.000    0.000    0.000 shutil.py:5(<module>)
-        1    0.000    0.000    0.006    0.006 __init__.py:6(<module>)
-        5    0.000    0.000    0.000    0.000 sre_compile.py:259(_mk_bitmap)
-        1    0.000    0.000    0.001    0.001 numerictypes.py:82(<module>)
-        1    0.000    0.000    0.032    0.032 add_newdocs.py:9(<module>)
+        1    0.000    0.000    0.014    0.014 __init__.py:6(<module>)
     62/34    0.000    0.000    0.000    0.000 sre_parse.py:141(getwidth)
-      170    0.000    0.000    0.000    0.000 {math.cos}
-        1    0.000    0.000    0.002    0.002 util.py:1(<module>)
-        1    0.000    0.000    0.000    0.000 _import_tools.py:1(<module>)
+        5    0.000    0.000    0.000    0.000 sre_compile.py:259(_mk_bitmap)
         1    0.000    0.000    0.002    0.002 arraysetops.py:25(<module>)
+        1    0.000    0.000    0.002    0.002 util.py:1(<module>)
       130    0.000    0.000    0.004    0.000 re.py:226(_compile)
-      170    0.000    0.000    0.000    0.000 {math.sin}
+      156    0.000    0.000    0.000    0.000 {math.cos}
         1    0.000    0.000    0.000    0.000 suite.py:1(<module>)
-        1    0.000    0.000    0.000    0.000 __init__.py:10(<module>)
-        1    0.000    0.000    0.005    0.005 terminate.py:1(<module>)
       882    0.000    0.000    0.000    0.000 {method 'group' of '_sre.SRE_Match' objects}
-        1    0.000    0.000    0.002    0.002 _internal.py:4(<module>)
-        3    0.000    0.000    0.000    0.000 numeric.py:207(extend_all)
         1    0.000    0.000    0.000    0.000 _iotools.py:1(<module>)
        31    0.000    0.000    0.000    0.000 _inspect.py:157(formatargspec)
-        1    0.000    0.000    0.000    0.000 fftpack.py:32(<module>)
-        1    0.000    0.000    0.017    0.017 type_check.py:3(<module>)
-        1    0.000    0.000    0.000    0.000 runner.py:1(<module>)
+        1    0.000    0.000    0.009    0.009 _internal.py:4(<module>)
        26    0.000    0.000    0.000    0.000 numerictypes.py:230(bitname)
-      268    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 numeric.py:207(extend_all)
+        1    0.000    0.000    0.000    0.000 fftpack.py:32(<module>)
+     1377    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
         1    0.000    0.000    0.000    0.000 numerictypes.py:302(_add_aliases)
+        1    0.000    0.000    0.000    0.000 runner.py:1(<module>)
+        1    0.000    0.000    0.002    0.002 terminate.py:1(<module>)
+      156    0.000    0.000    0.000    0.000 {math.sin}
+       31    0.000    0.000    0.000    0.000 _inspect.py:59(getargs)
+        1    0.000    0.000    0.004    0.004 polynomial.py:3(<module>)
       258    0.000    0.000    0.000    0.000 sre_parse.py:202(get)
-        1    0.000    0.000    0.001    0.001 polynomial.py:3(<module>)
         1    0.000    0.000    0.000    0.000 loader.py:1(<module>)
       268    0.000    0.000    0.000    0.000 {numpy.lib._compiled_base.add_docstring}
-        1    0.000    0.000    0.000    0.000 {method 'union' of 'set' objects}
+      268    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+      151    0.000    0.000    0.000    0.000 sre_parse.py:131(__getitem__)
         1    0.000    0.000    0.000    0.000 extras.py:10(<module>)
         1    0.000    0.000    0.000    0.000 polyutils.py:33(<module>)
-       31    0.000    0.000    0.000    0.000 _inspect.py:59(getargs)
+        1    0.000    0.000    0.000    0.000 _import_tools.py:334(PackageLoaderDebug)
         1    0.000    0.000    0.000    0.000 records.py:36(<module>)
-      151    0.000    0.000    0.000    0.000 sre_parse.py:131(__getitem__)
+        1    0.000    0.000    0.000    0.000 core.py:750(_DomainTan)
        27    0.000    0.000    0.000    0.000 core.py:821(__init__)
-        1    0.000    0.000    0.000    0.000 core.py:766(_DomainSafeDivide)
-        1    0.000    0.000    0.000    0.000 polytemplate.py:11(<module>)
         1    0.000    0.000    0.000    0.000 fromnumeric.py:2(<module>)
+        1    0.000    0.000    0.000    0.000 polytemplate.py:11(<module>)
       117    0.000    0.000    0.001    0.000 re.py:134(match)
-       14    0.000    0.000    0.000    0.000 __init__.py:147(_check_size)
-       40    0.000    0.000    0.001    0.000 core.py:107(get_object_signature)
+        1    0.000    0.000    0.000    0.000 _import_tools.py:1(<module>)
       117    0.000    0.000    0.000    0.000 {method 'match' of '_sre.SRE_Pattern' objects}
-       74    0.000    0.000    0.000    0.000 _inspect.py:150(strseq)
        19    0.000    0.000    0.000    0.000 nosetester.py:137(__init__)
-        1    0.000    0.000    0.000    0.000 _endian.py:4(<module>)
         1    0.000    0.000    0.000    0.000 defchararray.py:17(<module>)
-       23    0.000    0.000    0.001    0.000 core.py:5932(getdoc)
-       12    0.000    0.000    0.000    0.000 ctypeslib.py:306(prep_simple)
+        1    0.000    0.000    0.000    0.000 _endian.py:4(<module>)
        12    0.000    0.000    0.004    0.000 sre_compile.py:496(compile)
-       40    0.000    0.000    0.000    0.000 _inspect.py:118(getargspec)
-        3    0.000    0.000    0.000    0.000 __init__.py:488(PYFUNCTYPE)
-       18    0.000    0.000    0.001    0.000 sre_compile.py:179(_compile_charset)
-      171    0.000    0.000    0.000    0.000 {math.sqrt}
+       74    0.000    0.000    0.000    0.000 _inspect.py:150(strseq)
+       40    0.000    0.000    0.001    0.000 core.py:107(get_object_signature)
+       14    0.000    0.000    0.000    0.000 __init__.py:147(_check_size)
        30    0.000    0.000    0.000    0.000 numerictypes.py:448(_add_array_type)
+       12    0.000    0.000    0.000    0.000 ctypeslib.py:306(prep_simple)
+        1    0.000    0.000    0.000    0.000 scimath.py:17(<module>)
+       18    0.000    0.000    0.001    0.000 sre_compile.py:179(_compile_charset)
+        1    0.000    0.000    0.000    0.000 {posix.urandom}
+       23    0.000    0.000    0.001    0.000 core.py:5932(getdoc)
        21    0.000    0.000    0.000    0.000 numerictypes.py:217(_evalname)
-        1    0.000    0.000    0.000    0.000 signals.py:1(<module>)
-        2    0.000    0.000    0.000    0.000 __init__.py:78(CFUNCTYPE)
        12    0.000    0.000    0.002    0.000 sre_parse.py:676(parse)
-       12    0.000    0.000    0.000    0.000 sre_compile.py:362(_compile_info)
-       18    0.000    0.000    0.000    0.000 core.py:905(__init__)
+        2    0.000    0.000    0.000    0.000 __init__.py:78(CFUNCTYPE)
+        3    0.000    0.000    0.000    0.000 __init__.py:488(PYFUNCTYPE)
        19    0.000    0.000    0.000    0.000 posixpath.py:127(dirname)
       118    0.000    0.000    0.000    0.000 sre_parse.py:139(append)
-        1    0.000    0.000    0.000    0.000 numerictypes.py:785(_construct_lookups)
-        1    0.000    0.000    0.000    0.000 numerictypes.py:343(_add_integer_aliases)
-        1    0.000    0.000    0.001    0.001 difflib.py:29(<module>)
+       12    0.000    0.000    0.000    0.000 sre_compile.py:362(_compile_info)
+       40    0.000    0.000    0.000    0.000 _inspect.py:118(getargspec)
+       18    0.000    0.000    0.000    0.000 core.py:905(__init__)
+        1    0.000    0.000    0.000    0.000 signals.py:1(<module>)
         1    0.000    0.000    0.000    0.000 getlimits.py:2(<module>)
       120    0.000    0.000    0.000    0.000 sre_parse.py:196(match)
-        1    0.000    0.000    0.000    0.000 scimath.py:17(<module>)
-        1    0.000    0.000    0.000    0.000 numpytest.py:1(<module>)
-        2    0.000    0.000    0.000    0.000 {_ctypes.POINTER}
-        1    0.000    0.000    0.000    0.000 core.py:2574(MaskedArray)
+        1    0.000    0.000    0.000    0.000 numerictypes.py:343(_add_integer_aliases)
         1    0.000    0.000    0.000    0.000 numerictypes.py:286(_add_types)
-       14    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {_ctypes.POINTER}
+        1    0.000    0.000    0.001    0.001 difflib.py:29(<module>)
+        1    0.000    0.000    0.000    0.000 numerictypes.py:785(_construct_lookups)
         1    0.000    0.000    0.000    0.000 arrayterator.py:9(<module>)
        22    0.000    0.000    0.000    0.000 sre_compile.py:355(_simple)
+        1    0.000    0.000    0.000    0.000 numpytest.py:1(<module>)
+       14    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 core.py:2574(MaskedArray)
         1    0.000    0.000    0.000    0.000 memmap.py:1(<module>)
-        2    0.000    0.000    0.000    0.000 {method 'close' of 'file' objects}
-    18/12    0.000    0.000    0.001    0.000 sre_parse.py:302(_parse_sub)
+    18/12    0.000    0.000    0.002    0.000 sre_parse.py:302(_parse_sub)
+      157    0.000    0.000    0.000    0.000 {math.sqrt}
         1    0.000    0.000    0.000    0.000 <string>:2(<module>)
-        1    0.000    0.000    0.000    0.000 nosetester.py:6(<module>)
+        2    0.000    0.000    0.000    0.000 {method 'close' of 'file' objects}
        72    0.000    0.000    0.000    0.000 numerictypes.py:128(english_lower)
-        3    0.000    0.000    0.000    0.000 {map}
-        1    0.000    0.000    0.000    0.000 numerictypes.py:456(_set_array_types)
-       80    0.000    0.000    0.000    0.000 {min}
-        1    0.000    0.000    0.000    0.000 format.py:136(<module>)
-        1    0.000    0.000    0.000    0.000 __init__.py:344(__init__)
-        1    0.000    0.000    0.000    0.000 defchararray.py:1732(chararray)
-        1    0.000    0.000    0.000    0.000 machar.py:4(<module>)
-        2    0.000    0.000    0.000    0.000 shape_base.py:1(<module>)
-       91    0.000    0.000    0.000    0.000 {_sre.getlower}
-        1    0.000    0.000    0.000    0.000 {dir}
-       43    0.000    0.000    0.000    0.000 _inspect.py:161(<lambda>)
-       21    0.000    0.000    0.000    0.000 {numpy.core.multiarray.empty}
-        1    0.000    0.000    0.000    0.000 helper.py:3(<module>)
       256    0.000    0.000    0.000    0.000 {chr}
-       12    0.000    0.000    0.000    0.000 {_sre.compile}
-       12    0.000    0.000    0.002    0.000 sre_compile.py:481(_code)
-      123    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
-        3    0.000    0.000    0.001    0.000 warnings.py:45(filterwarnings)
-       40    0.000    0.000    0.000    0.000 sre_parse.py:91(__init__)
+        1    0.000    0.000    0.000    0.000 format.py:136(<module>)
        89    0.000    0.000    0.000    0.000 sre_parse.py:127(__len__)
-       23    0.000    0.000    0.001    0.000 core.py:5928(__init__)
-        1    0.000    0.000    0.000    0.000 py3k.py:4(<module>)
-        1    0.000    0.000    0.000    0.000 _internal.py:191(_getintp_ctype)
-        1    0.000    0.000    0.000    0.000 stride_tricks.py:7(<module>)
-        1    0.000    0.000    0.000    0.000 {posix.urandom}
-        2    0.000    0.000    0.000    0.000 utils.py:157(deprecate)
-        1    0.000    0.000    0.000    0.000 _inspect.py:6(<module>)
-      112    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 numerictypes.py:456(_set_array_types)
+        1    0.000    0.000    0.000    0.000 machar.py:4(<module>)
+        3    0.000    0.000    0.000    0.000 {map}
+       80    0.000    0.000    0.000    0.000 {min}
+        1    0.000    0.000    0.000    0.000 nosetester.py:6(<module>)
+        1    0.000    0.000    0.000    0.000 __init__.py:344(__init__)
        40    0.000    0.000    0.000    0.000 _inspect.py:13(ismethod)
-        1    0.000    0.000    0.000    0.000 numerictypes.py:433(_construct_char_code_lookup)
+        2    0.000    0.000    0.000    0.000 shape_base.py:1(<module>)
+        1    0.000    0.000    0.000    0.000 defchararray.py:1732(chararray)
+       12    0.000    0.000    0.002    0.000 sre_compile.py:481(_code)
+        1    0.000    0.000    0.000    0.000 {dir}
         5    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
-       40    0.000    0.000    0.000    0.000 _inspect.py:24(isfunction)
+        1    0.000    0.000    0.000    0.000 helper.py:3(<module>)
+        1    0.000    0.000    0.000    0.000 stride_tricks.py:7(<module>)
+        1    0.000    0.000    0.000    0.000 _inspect.py:6(<module>)
+      123    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+       40    0.000    0.000    0.000    0.000 sre_parse.py:91(__init__)
+        9    0.000    0.000    0.000    0.000 extras.py:243(getdoc)
+        1    0.000    0.000    0.000    0.000 py3k.py:4(<module>)
+       46    0.000    0.000    0.000    0.000 collections.py:323(<genexpr>)
+       91    0.000    0.000    0.000    0.000 {_sre.getlower}
+        1    0.000    0.000    0.000    0.000 _internal.py:191(_getintp_ctype)
+       12    0.000    0.000    0.000    0.000 {_sre.compile}
+        1    0.000    0.000    0.000    0.000 numerictypes.py:433(_construct_char_code_lookup)
+       21    0.000    0.000    0.000    0.000 {numpy.core.multiarray.empty}
         1    0.000    0.000    0.000    0.000 pickle.py:827(Unpickler)
-        2    0.000    0.000    0.000    0.000 utils.py:113(__call__)
-       14    0.000    0.000    0.000    0.000 numerictypes.py:182(english_capitalize)
-        6    0.000    0.000    0.004    0.001 string.py:148(substitute)
+       23    0.000    0.000    0.001    0.000 core.py:5928(__init__)
+      112    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
         1    0.000    0.000    0.000    0.000 _methods.py:4(<module>)
+        3    0.000    0.000    0.001    0.000 warnings.py:45(filterwarnings)
        24    0.000    0.000    0.000    0.000 sre_compile.py:475(isstring)
+       43    0.000    0.000    0.000    0.000 _inspect.py:161(<lambda>)
+        6    0.000    0.000    0.004    0.001 string.py:148(substitute)
        18    0.000    0.000    0.000    0.000 {_struct.calcsize}
         1    0.000    0.000    0.000    0.000 numerictypes.py:384(_set_up_aliases)
-        2    0.000    0.000    0.000    0.000 getlimits.py:242(__init__)
-        1    0.000    0.000    0.000    0.000 _iotools.py:456(StringConverter)
-       11    0.000    0.000    0.000    0.000 sre_parse.py:258(_escape)
-        8    0.000    0.000    0.000    0.000 core.py:7137(getdoc)
-        1    0.000    0.000    0.000    0.000 defmatrix.py:195(matrix)
         6    0.000    0.000    0.000    0.000 core.py:1052(__init__)
-        1    0.000    0.000    0.000    0.000 random.py:100(seed)
-       46    0.000    0.000    0.000    0.000 collections.py:323(<genexpr>)
-        1    0.000    0.000    0.000    0.000 pprint.py:35(<module>)
         6    0.000    0.000    0.000    0.000 hashlib.py:89(__get_openssl_constructor)
-        1    0.000    0.000    0.000    0.000 twodim_base.py:3(<module>)
         1    0.000    0.000    0.000    0.000 case.py:171(TestCase)
-        3    0.000    0.000    0.000    0.000 functools.py:17(update_wrapper)
-        1    0.000    0.000    0.000    0.000 __future__.py:48(<module>)
+        2    0.000    0.000    0.000    0.000 getlimits.py:242(__init__)
+        2    0.000    0.000    0.000    0.000 utils.py:113(__call__)
+        1    0.000    0.000    0.000    0.000 defmatrix.py:195(matrix)
+        2    0.000    0.000    0.000    0.000 utils.py:157(deprecate)
+       19    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 _iotools.py:456(StringConverter)
+        8    0.000    0.000    0.000    0.000 core.py:7137(getdoc)
+       40    0.000    0.000    0.000    0.000 _inspect.py:24(isfunction)
+       22    0.000    0.000    0.000    0.000 sre_parse.py:135(__setitem__)
+        1    0.000    0.000    0.000    0.000 <string>:7(HermiteE)
+       40    0.000    0.000    0.000    0.000 numerictypes.py:155(english_upper)
+        1    0.000    0.000    0.000    0.000 pprint.py:35(<module>)
+        1    0.000    0.000    0.000    0.000 twodim_base.py:3(<module>)
+       12    0.000    0.000    0.000    0.000 sre_parse.py:179(__init__)
+        1    0.000    0.000    0.000    0.000 <string>:7(Laguerre)
+       17    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 <string>:7(Hermite)
+        1    0.000    0.000    0.000    0.000 {function seed at 0x7f91f731ef50}
+       11    0.000    0.000    0.000    0.000 sre_parse.py:258(_escape)
+        1    0.000    0.000    0.000    0.000 <string>:7(Legendre)
         1    0.000    0.000    0.000    0.000 <string>:7(Chebyshev)
         1    0.000    0.000    0.000    0.000 <string>:7(Polynomial)
-       12    0.000    0.000    0.000    0.000 sre_parse.py:179(__init__)
-       19    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
-        1    0.000    0.000    0.000    0.000 <string>:7(Laguerre)
-        9    0.000    0.000    0.000    0.000 extras.py:243(getdoc)
-        8    0.000    0.000    0.000    0.000 {all}
-        1    0.000    0.000    0.000    0.000 <string>:7(Hermite)
-        1    0.000    0.000    0.000    0.000 {function seed at 0x7f6645f8bf50}
-       31    0.000    0.000    0.000    0.000 _inspect.py:37(iscode)
-      133    0.000    0.000    0.000    0.000 {ord}
+        3    0.000    0.000    0.000    0.000 functools.py:17(update_wrapper)
         1    0.000    0.000    0.000    0.000 pickle.py:171(Pickler)
-        1    0.000    0.000    0.000    0.000 <string>:7(HermiteE)
-        8    0.000    0.000    0.000    0.000 core.py:7132(__init__)
-       40    0.000    0.000    0.000    0.000 numerictypes.py:155(english_upper)
-        1    0.000    0.000    0.000    0.000 <string>:7(Legendre)
-        4    0.000    0.000    0.000    0.000 sre_parse.py:217(isname)
-        1    0.000    0.000    0.000    0.000 random.py:72(Random)
-        9    0.000    0.000    0.000    0.000 core.py:2436(getdoc)
-       17    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
-       19    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
-       21    0.000    0.000    0.000    0.000 {sys._getframe}
-        1    0.000    0.000    0.000    0.000 financial.py:8(<module>)
-        1    0.000    0.000    0.000    0.000 warnings.py:74(simplefilter)
-        2    0.000    0.000    0.000    0.000 getlimits.py:267(max)
-        1    0.000    0.000    0.000    0.000 collections.py:26(OrderedDict)
        20    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
         9    0.000    0.000    0.000    0.000 core.py:2430(__init__)
+        1    0.000    0.000    0.000    0.000 random.py:100(seed)
+        1    0.000    0.000    0.000    0.000 random.py:72(Random)
+        8    0.000    0.000    0.000    0.000 core.py:7132(__init__)
+        1    0.000    0.000    0.000    0.000 financial.py:8(<module>)
+       14    0.000    0.000    0.000    0.000 numerictypes.py:182(english_capitalize)
+        4    0.000    0.000    0.000    0.000 sre_parse.py:217(isname)
+        8    0.000    0.000    0.000    0.000 {all}
+        9    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+       15    0.000    0.000    0.000    0.000 sre_compile.py:52(fixup)
+      133    0.000    0.000    0.000    0.000 {ord}
+       12    0.000    0.000    0.000    0.000 sre_parse.py:68(__init__)
+        1    0.000    0.000    0.000    0.000 __future__.py:48(<module>)
         2    0.000    0.000    0.000    0.000 {_csv.register_dialect}
         1    0.000    0.000    0.000    0.000 <string>:1(Mismatch)
-       50    0.000    0.000    0.000    0.000 {_ctypes.sizeof}
-       12    0.000    0.000    0.000    0.000 sre_parse.py:68(__init__)
-        5    0.000    0.000    0.000    0.000 sre_parse.py:73(opengroup)
-       13    0.000    0.000    0.003    0.000 re.py:188(compile)
+       31    0.000    0.000    0.000    0.000 _inspect.py:37(iscode)
+       21    0.000    0.000    0.000    0.000 {sys._getframe}
+        1    0.000    0.000    0.000    0.000 collections.py:26(OrderedDict)
         1    0.000    0.000    0.000    0.000 StringIO.py:30(<module>)
-        1    0.000    0.000    0.000    0.000 keyword.py:11(<module>)
-       24    0.000    0.000    0.000    0.000 sre_parse.py:211(isident)
-        1    0.000    0.000    0.000    0.000 polynomial.py:928(poly1d)
-        9    0.000    0.000    0.000    0.000 extras.py:239(__init__)
-       73    0.000    0.000    0.000    0.000 {globals}
-        9    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
-        1    0.000    0.000    0.000    0.000 __init__.py:265(_reset_cache)
-        1    0.000    0.000    0.000    0.000 <string>:1(Match)
         1    0.000    0.000    0.000    0.000 arraypad.py:4(<module>)
-        3    0.000    0.000    0.000    0.000 result.py:14(failfast)
-        8    0.000    0.000    0.000    0.000 collections.py:347(<genexpr>)
-        8    0.000    0.000    0.000    0.000 collections.py:349(<genexpr>)
-        3    0.000    0.000    0.000    0.000 index_tricks.py:228(__init__)
-        4    0.000    0.000    0.000    0.000 core.py:90(doc_note)
-        1    0.000    0.000    0.000    0.000 _iotools.py:236(NameValidator)
-        1    0.000    0.000    0.000    0.000 _internal.py:219(_ctypes)
+        1    0.000    0.000    0.000    0.000 polynomial.py:928(poly1d)
+        2    0.000    0.000    0.000    0.000 getlimits.py:267(max)
+       50    0.000    0.000    0.000    0.000 {_ctypes.sizeof}
+        1    0.000    0.000    0.000    0.000 <string>:1(Match)
+       13    0.000    0.000    0.003    0.000 re.py:188(compile)
+       24    0.000    0.000    0.000    0.000 sre_parse.py:211(isident)
+        9    0.000    0.000    0.000    0.000 extras.py:239(__init__)
         1    0.000    0.000    0.000    0.000 result.py:26(TestResult)
+        5    0.000    0.000    0.000    0.000 sre_parse.py:73(opengroup)
+        4    0.000    0.000    0.000    0.000 core.py:90(doc_note)
+        1    0.000    0.000    0.000    0.000 keyword.py:11(<module>)
+        1    0.000    0.000    0.000    0.000 ufunclike.py:4(<module>)
+        3    0.000    0.000    0.000    0.000 result.py:14(failfast)
+        1    0.000    0.000    0.000    0.000 _iotools.py:236(NameValidator)
+        8    0.000    0.000    0.000    0.000 collections.py:347(<genexpr>)
         1    0.000    0.000    0.000    0.000 StringIO.py:42(StringIO)
-       22    0.000    0.000    0.000    0.000 sre_parse.py:135(__setitem__)
+        1    0.000    0.000    0.000    0.000 {numpy.core.umath.seterrobj}
+        7    0.000    0.000    0.000    0.000 __future__.py:75(__init__)
+        3    0.000    0.000    0.000    0.000 index_tricks.py:228(__init__)
         1    0.000    0.000    0.000    0.000 output.py:1(<module>)
         1    0.000    0.000    0.000    0.000 {_ctypes.dlopen}
+        1    0.000    0.000    0.000    0.000 cycle.py:1(<module>)
+        1    0.000    0.000    0.000    0.000 csv.py:73(DictReader)
+        1    0.000    0.000    0.000    0.000 fnmatch.py:11(<module>)
+        1    0.000    0.000    0.000    0.000 _internal.py:219(_ctypes)
+       19    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 collections.py:349(<genexpr>)
+        1    0.000    0.000    0.000    0.000 __init__.py:265(_reset_cache)
+        1    0.000    0.000    0.000    0.000 loader.py:38(TestLoader)
+        1    0.000    0.000    0.000    0.000 __config__.py:3(<module>)
         1    0.000    0.000    0.000    0.000 {method 'view' of 'numpy.ndarray' objects}
         1    0.000    0.000    0.000    0.000 collections.py:381(Counter)
-        1    0.000    0.000    0.000    0.000 ufunclike.py:4(<module>)
-        1    0.000    0.000    0.000    0.000 csv.py:73(DictReader)
-        2    0.000    0.000    0.000    0.000 {numpy.core.multiarray.set_string_function}
-       15    0.000    0.000    0.000    0.000 sre_compile.py:52(fixup)
-       51    0.000    0.000    0.000    0.000 sre_compile.py:25(_identityfunction)
-        1    0.000    0.000    0.000    0.000 {numpy.core.umath.seterrobj}
-        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_md5}
-        1    0.000    0.000    0.000    0.000 __config__.py:3(<module>)
-        1    0.000    0.000    0.000    0.000 cycle.py:1(<module>)
-        1    0.000    0.000    0.000    0.000 fnmatch.py:11(<module>)
-       38    0.000    0.000    0.000    0.000 {method 'isalnum' of 'str' objects}
         1    0.000    0.000    0.000    0.000 {posix.chdir}
         1    0.000    0.000    0.000    0.000 runner.py:28(TextTestResult)
+       51    0.000    0.000    0.000    0.000 sre_compile.py:25(_identityfunction)
         3    0.000    0.000    0.000    0.000 functools.py:39(wraps)
         1    0.000    0.000    0.000    0.000 nosetester.py:85(NoseTester)
-        1    0.000    0.000    0.000    0.000 loader.py:38(TestLoader)
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_md5}
+        9    0.000    0.000    0.000    0.000 core.py:2436(getdoc)
+        2    0.000    0.000    0.000    0.000 {numpy.core.multiarray.set_string_function}
         1    0.000    0.000    0.000    0.000 getlimits.py:192(iinfo)
+        9    0.000    0.000    0.000    0.000 {setattr}
+        2    0.000    0.000    0.000    0.000 numeric.py:1473(set_string_function)
+        1    0.000    0.000    0.000    0.000 warnings.py:74(simplefilter)
         1    0.000    0.000    0.000    0.000 random.py:799(SystemRandom)
         1    0.000    0.000    0.000    0.000 core.py:5507(mvoid)
+        1    0.000    0.000    0.000    0.000 index_tricks.py:431(__init__)
         1    0.000    0.000    0.000    0.000 core.py:5697(MaskedConstant)
-        1    0.000    0.000    0.000    0.000 copy_reg.py:14(pickle)
         1    0.000    0.000    0.000    0.000 suite.py:78(TestSuite)
+        1    0.000    0.000    0.000    0.000 _import_tools.py:6(PackageLoader)
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
         1    0.000    0.000    0.000    0.000 index_tricks.py:505(ndindex)
+        5    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
         1    0.000    0.000    0.000    0.000 arrayterator.py:21(Arrayterator)
         1    0.000    0.000    0.000    0.000 records.py:83(format_parser)
+        1    0.000    0.000    0.000    0.000 {numpy.core.multiarray.set_typeDict}
         1    0.000    0.000    0.000    0.000 utils.py:988(SafeEval)
-        1    0.000    0.000    0.000    0.000 utils.py:1424(__enter__)
+        1    0.000    0.000    0.000    0.000 extras.py:1497(__init__)
+        1    0.000    0.000    0.000    0.000 {method 'union' of 'set' objects}
+       38    0.000    0.000    0.000    0.000 {method 'isalnum' of 'str' objects}
        13    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
-        8    0.000    0.000    0.000    0.000 {method 'isdigit' of 'str' objects}
         1    0.000    0.000    0.000    0.000 machar.py:15(MachAr)
         1    0.000    0.000    0.000    0.000 _datasource.py:148(DataSource)
-        4    0.000    0.000    0.000    0.000 core.py:2443(__get__)
-        7    0.000    0.000    0.000    0.000 case.py:647(_deprecate)
-        1    0.000    0.000    0.000    0.000 core.py:5703(__new__)
         1    0.000    0.000    0.000    0.000 npyio.py:126(NpzFile)
+        1    0.000    0.000    0.000    0.000 copy_reg.py:14(pickle)
         1    0.000    0.000    0.000    0.000 runner.py:12(_WritelnDecorator)
-        1    0.000    0.000    0.000    0.000 extras.py:1427(__init__)
-        1    0.000    0.000    0.000    0.000 utils.py:1416(__init__)
-        7    0.000    0.000    0.000    0.000 __future__.py:75(__init__)
+        1    0.000    0.000    0.000    0.000 main.py:63(TestProgram)
+        1    0.000    0.000    0.000    0.000 {zip}
         1    0.000    0.000    0.000    0.000 ctypeslib.py:153(_ndptr)
+        1    0.000    0.000    0.000    0.000 difflib.py:46(SequenceMatcher)
         5    0.000    0.000    0.000    0.000 sre_parse.py:84(closegroup)
-        1    0.000    0.000    0.000    0.000 _import_tools.py:6(PackageLoader)
+        1    0.000    0.000    0.000    0.000 {binascii.hexlify}
         1    0.000    0.000    0.000    0.000 difflib.py:1672(HtmlDiff)
-        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
-        4    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
         1    0.000    0.000    0.000    0.000 _iotools.py:145(LineSplitter)
-        1    0.000    0.000    0.000    0.000 random.py:91(__init__)
-        3    0.000    0.000    0.000    0.000 core.py:736(__init__)
-        1    0.000    0.000    0.000    0.000 UserDict.py:58(get)
-        1    0.000    0.000    0.000    0.000 {numpy.core.multiarray.set_typeDict}
         1    0.000    0.000    0.000    0.000 csv.py:26(Dialect)
-        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha1}
-        1    0.000    0.000    0.000    0.000 csv.py:123(DictWriter)
-        1    0.000    0.000    0.000    0.000 suite.py:252(_ErrorHolder)
-        1    0.000    0.000    0.000    0.000 __init__.py:243(c_char_p)
         1    0.000    0.000    0.000    0.000 core.py:5876(__init__)
         1    0.000    0.000    0.000    0.000 core.py:5864(__init__)
-        1    0.000    0.000    0.000    0.000 extras.py:1497(__init__)
+        1    0.000    0.000    0.000    0.000 utils.py:1424(__enter__)
         1    0.000    0.000    0.000    0.000 {method 'setter' of 'property' objects}
+        1    0.000    0.000    0.000    0.000 {_ctypes.set_conversion_mode}
         1    0.000    0.000    0.000    0.000 info.py:84(<module>)
+        1    0.000    0.000    0.000    0.000 info.py:175(<module>)
         1    0.000    0.000    0.000    0.000 records.py:284(recarray)
-        9    0.000    0.000    0.000    0.000 {setattr}
+       73    0.000    0.000    0.000    0.000 {globals}
         2    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
         1    0.000    0.000    0.000    0.000 random.py:649(WichmannHill)
         1    0.000    0.000    0.000    0.000 pprint.py:84(PrettyPrinter)
-        1    0.000    0.000    0.000    0.000 getlimits.py:22(finfo)
         3    0.000    0.000    0.000    0.000 __init__.py:489(CFunctionType)
-        2    0.000    0.000    0.000    0.000 numeric.py:1473(set_string_function)
+        1    0.000    0.000    0.000    0.000 utils.py:1364(WarningMessage)
         1    0.000    0.000    0.000    0.000 runner.py:119(TextTestRunner)
-        1    0.000    0.000    0.000    0.000 function_base.py:1706(vectorize)
-        1    0.000    0.000    0.000    0.000 index_tricks.py:431(__init__)
-        6    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        4    0.000    0.000    0.000    0.000 core.py:2443(__get__)
+        4    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
         2    0.000    0.000    0.000    0.000 utils.py:108(__init__)
         2    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
         1    0.000    0.000    0.000    0.000 _datasource.py:70(__init__)
-        2    0.000    0.000    0.000    0.000 index_tricks.py:142(__init__)
+        1    0.000    0.000    0.000    0.000 core.py:5703(__new__)
         1    0.000    0.000    0.000    0.000 case.py:1056(FunctionTestCase)
-        1    0.000    0.000    0.000    0.000 main.py:63(TestProgram)
         1    0.000    0.000    0.000    0.000 memmap.py:20(memmap)
-        2    0.000    0.000    0.000    0.000 __init__.py:104(CFunctionType)
-        1    0.000    0.000    0.000    0.000 __init__.py:327(CDLL)
-        1    0.000    0.000    0.000    0.000 {zip}
+        1    0.000    0.000    0.000    0.000 extras.py:1427(__init__)
+        1    0.000    0.000    0.000    0.000 utils.py:1416(__init__)
         1    0.000    0.000    0.000    0.000 numeric.py:2571(_setdef)
         1    0.000    0.000    0.000    0.000 _datasource.py:482(Repository)
-        1    0.000    0.000    0.000    0.000 difflib.py:46(SequenceMatcher)
-        1    0.000    0.000    0.000    0.000 core.py:2401(_arraymethod)
+        1    0.000    0.000    0.000    0.000 difflib.py:766(Differ)
         1    0.000    0.000    0.000    0.000 suite.py:16(BaseTestSuite)
-        1    0.000    0.000    0.000    0.000 {binascii.hexlify}
-        1    0.000    0.000    0.000    0.000 index_tricks.py:210(AxisConcatenator)
-        1    0.000    0.000    0.000    0.000 core.py:886(_MaskedBinaryOperation)
-        5    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
-        2    0.000    0.000    0.000    0.000 __init__.py:424(__init__)
+        1    0.000    0.000    0.000    0.000 core.py:2471(MaskedIterator)
+        1    0.000    0.000    0.000    0.000 core.py:2252(_MaskedPrintOption)
+        1    0.000    0.000    0.000    0.000 csv.py:162(Sniffer)
+        4    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
         1    0.000    0.000    0.000    0.000 index_tricks.py:453(__init__)
+        1    0.000    0.000    0.000    0.000 random.py:91(__init__)
+        3    0.000    0.000    0.000    0.000 core.py:736(__init__)
         1    0.000    0.000    0.000    0.000 index_tricks.py:82(nd_grid)
         1    0.000    0.000    0.000    0.000 weakref.py:243(__init__)
         1    0.000    0.000    0.000    0.000 arrayprint.py:523(FloatFormat)
         1    0.000    0.000    0.000    0.000 signals.py:9(_InterruptHandler)
+        1    0.000    0.000    0.000    0.000 polyutils.py:48(RankWarning)
         1    0.000    0.000    0.000    0.000 extras.py:1481(mr_class)
         1    0.000    0.000    0.000    0.000 numeric.py:2493(_unspecified)
         1    0.000    0.000    0.000    0.000 pickle.py:69(UnpicklingError)
+        1    0.000    0.000    0.000    0.000 shutil.py:38(ExecError)
+        1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha1}
+        1    0.000    0.000    0.000    0.000 csv.py:123(DictWriter)
         1    0.000    0.000    0.000    0.000 case.py:136(_AssertRaisesContext)
+        1    0.000    0.000    0.000    0.000 suite.py:252(_ErrorHolder)
         1    0.000    0.000    0.000    0.000 core.py:1032(_DomainedBinaryOperation)
+        1    0.000    0.000    0.000    0.000 __init__.py:243(c_char_p)
         1    0.000    0.000    0.000    0.000 __init__.py:289(c_wchar)
         1    0.000    0.000    0.000    0.000 records.py:214(record)
         1    0.000    0.000    0.000    0.000 core.py:804(_MaskedUnaryOperation)
@@ -521,114 +519,116 @@ Population file: 1479416453.57_rec=1_n=500_lTot=500_initLdelFreq=0.0_cooption=0_
         1    0.000    0.000    0.000    0.000 _internal.py:212(_missing_ctypes)
         1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha224}
         1    0.000    0.000    0.000    0.000 version.py:3(<module>)
+        1    0.000    0.000    0.000    0.000 core.py:126(MAError)
         1    0.000    0.000    0.000    0.000 core.py:793(_DomainGreaterEqual)
-        2    0.000    0.000    0.000    0.000 {posix.getpid}
-        1    0.000    0.000    0.000    0.000 index_tricks.py:337(RClass)
+        1    0.000    0.000    0.000    0.000 __init__.py:226(c_ubyte)
         1    0.000    0.000    0.000    0.000 csv.py:57(excel)
-        1    0.000    0.000    0.000    0.000 {_ctypes.set_conversion_mode}
-        1    0.000    0.000    0.000    0.000 core.py:728(_DomainCheckInterval)
         1    0.000    0.000    0.000    0.000 core.py:5807(_extrema_operation)
-        1    0.000    0.000    0.000    0.000 info.py:175(<module>)
         1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha512}
         1    0.000    0.000    0.000    0.000 arrayprint.py:740(TimedeltaFormat)
         1    0.000    0.000    0.000    0.000 arrayprint.py:712(DatetimeFormat)
+        1    0.000    0.000    0.000    0.000 arrayprint.py:685(LongComplexFormat)
         1    0.000    0.000    0.000    0.000 arrayprint.py:655(LongFloatFormat)
         1    0.000    0.000    0.000    0.000 npyio.py:82(BagObj)
+        1    0.000    0.000    0.000    0.000 __init__.py:172(c_ushort)
         1    0.000    0.000    0.000    0.000 utils.py:1394(WarningManager)
+        1    0.000    0.000    0.000    0.000 pickle.py:1261(_EmptyClass)
+        1    0.000    0.000    0.000    0.000 getlimits.py:22(finfo)
         1    0.000    0.000    0.000    0.000 string.py:131(__init__)
+        6    0.000    0.000    0.000    0.000 core.py:768(__init__)
         2    0.000    0.000    0.000    0.000 utils.py:93(_set_function_name)
+        8    0.000    0.000    0.000    0.000 {method 'isdigit' of 'str' objects}
         1    0.000    0.000    0.000    0.000 _datasource.py:47(_FileOpeners)
         1    0.000    0.000    0.000    0.000 extras.py:222(_fromnxfunction)
-        1    0.000    0.000    0.000    0.000 _inspect.py:160(<lambda>)
         1    0.000    0.000    0.000    0.000 index_tricks.py:600(IndexExpression)
-        1    0.000    0.000    0.000    0.000 core.py:750(_DomainTan)
-        1    0.000    0.000    0.000    0.000 utils.py:1364(WarningMessage)
         1    0.000    0.000    0.000    0.000 utils.py:1440(__exit__)
         1    0.000    0.000    0.000    0.000 __init__.py:383(PyDLL)
         1    0.000    0.000    0.000    0.000 __init__.py:423(LibraryLoader)
         1    0.000    0.000    0.000    0.000 __future__.py:74(_Feature)
-        1    0.000    0.000    0.000    0.000 numeric.py:37(ComplexWarning)
-        4    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 function_base.py:1706(vectorize)
+        1    0.000    0.000    0.000    0.000 UserDict.py:70(__contains__)
+        7    0.000    0.000    0.000    0.000 case.py:647(_deprecate)
+        6    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
         1    0.000    0.000    0.000    0.000 __init__.py:159(py_object)
-        1    0.000    0.000    0.000    0.000 numeric.py:2497(errstate)
         1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha256}
         1    0.000    0.000    0.000    0.000 stride_tricks.py:12(DummyArray)
-        1    0.000    0.000    0.000    0.000 core.py:5862(_minimum_operation)
+        2    0.000    0.000    0.000    0.000 index_tricks.py:142(__init__)
         1    0.000    0.000    0.000    0.000 csv.py:67(excel_tab)
-        1    0.000    0.000    0.000    0.000 copy_reg.py:27(constructor)
+        1    0.000    0.000    0.000    0.000 core.py:129(MaskError)
         1    0.000    0.000    0.000    0.000 case.py:26(SkipTest)
-        1    0.000    0.000    0.000    0.000 pickle.py:58(PickleError)
         1    0.000    0.000    0.000    0.000 core.py:5918(_frommethod)
         1    0.000    0.000    0.000    0.000 index_tricks.py:436(CClass)
-        2    0.000    0.000    0.000    0.000 index_tricks.py:643(__init__)
+        2    0.000    0.000    0.000    0.000 sre_parse.py:214(isdigit)
         1    0.000    0.000    0.000    0.000 info.py:34(<module>)
         1    0.000    0.000    0.000    0.000 utils.py:97(_Deprecate)
         1    0.000    0.000    0.000    0.000 extras.py:1415(MAxisConcatenator)
         1    0.000    0.000    0.000    0.000 __init__.py:168(c_short)
-        1    0.000    0.000    0.000    0.000 difflib.py:766(Differ)
+        2    0.000    0.000    0.000    0.000 __init__.py:104(CFunctionType)
+        1    0.000    0.000    0.000    0.000 __init__.py:327(CDLL)
+        1    0.000    0.000    0.000    0.000 pickle.py:62(PicklingError)
         1    0.000    0.000    0.000    0.000 index_tricks.py:458(ndenumerate)
         1    0.000    0.000    0.000    0.000 {time.time}
         1    0.000    0.000    0.000    0.000 __init__.py:193(c_uint)
-        1    0.000    0.000    0.000    0.000 __init__.py:255(c_void_p)
+        1    0.000    0.000    0.000    0.000 core.py:2401(_arraymethod)
         1    0.000    0.000    0.000    0.000 info.py:83(<module>)
         2    0.000    0.000    0.000    0.000 core.py:795(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:201(c_double)
-        3    0.000    0.000    0.000    0.000 core.py:783(__init__)
-        1    0.000    0.000    0.000    0.000 core.py:2471(MaskedIterator)
-        1    0.000    0.000    0.000    0.000 polyutils.py:56(PolyDomainError)
-        1    0.000    0.000    0.000    0.000 __init__.py:189(c_int)
-        1    0.000    0.000    0.000    0.000 core.py:2252(_MaskedPrintOption)
-        1    0.000    0.000    0.000    0.000 _endian.py:26(_swapped_meta)
-        1    0.000    0.000    0.000    0.000 _endian.py:49(BigEndianStructure)
         1    0.000    0.000    0.000    0.000 __init__.py:205(c_longdouble)
+        1    0.000    0.000    0.000    0.000 index_tricks.py:210(AxisConcatenator)
+        1    0.000    0.000    0.000    0.000 core.py:5706(__array_finalize__)
         1    0.000    0.000    0.000    0.000 {_hashlib.openssl_sha384}
         1    0.000    0.000    0.000    0.000 __init__.py:354(_FuncPtr)
-        1    0.000    0.000    0.000    0.000 numerictypes.py:770(_typedict)
-        1    0.000    0.000    0.000    0.000 csv.py:162(Sniffer)
-        1    0.000    0.000    0.000    0.000 _iotools.py:435(ConverterLockError)
+        1    0.000    0.000    0.000    0.000 core.py:886(_MaskedBinaryOperation)
+        1    0.000    0.000    0.000    0.000 case.py:35(_ExpectedFailure)
+        2    0.000    0.000    0.000    0.000 __init__.py:424(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:176(c_long)
-        1    0.000    0.000    0.000    0.000 _import_tools.py:334(PackageLoaderDebug)
         8    0.000    0.000    0.000    0.000 {method '__contains__' of 'frozenset' objects}
+        1    0.000    0.000    0.000    0.000 numeric.py:2497(errstate)
         1    0.000    0.000    0.000    0.000 core.py:781(_DomainGreater)
-        1    0.000    0.000    0.000    0.000 _iotools.py:428(ConverterError)
         1    0.000    0.000    0.000    0.000 info.py:147(<module>)
         1    0.000    0.000    0.000    0.000 pickle.py:82(_Stop)
-        1    0.000    0.000    0.000    0.000 polyutils.py:48(RankWarning)
-        1    0.000    0.000    0.000    0.000 shutil.py:38(ExecError)
+        1    0.000    0.000    0.000    0.000 UserDict.py:58(get)
         1    0.000    0.000    0.000    0.000 polyutils.py:52(PolyError)
         1    0.000    0.000    0.000    0.000 core.py:5874(_maximum_operation)
-        1    0.000    0.000    0.000    0.000 core.py:126(MAError)
-        1    0.000    0.000    0.000    0.000 __init__.py:226(c_ubyte)
+        2    0.000    0.000    0.000    0.000 {posix.getpid}
+        1    0.000    0.000    0.000    0.000 index_tricks.py:337(RClass)
         1    0.000    0.000    0.000    0.000 numpytest.py:10(IgnoreException)
+        1    0.000    0.000    0.000    0.000 core.py:728(_DomainCheckInterval)
         1    0.000    0.000    0.000    0.000 shutil.py:34(SpecialFileError)
         1    0.000    0.000    0.000    0.000 polyutils.py:69(PolyBase)
-        1    0.000    0.000    0.000    0.000 arrayprint.py:685(LongComplexFormat)
         1    0.000    0.000    0.000    0.000 case.py:46(_UnexpectedSuccess)
-        1    0.000    0.000    0.000    0.000 __init__.py:172(c_ushort)
-        1    0.000    0.000    0.000    0.000 pickle.py:1261(_EmptyClass)
-        6    0.000    0.000    0.000    0.000 core.py:768(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:233(c_byte)
+        1    0.000    0.000    0.000    0.000 _inspect.py:160(<lambda>)
+        1    0.000    0.000    0.000    0.000 numeric.py:37(ComplexWarning)
+        1    0.000    0.000    0.000    0.000 core.py:766(_DomainSafeDivide)
+        1    0.000    0.000    0.000    0.000 core.py:5862(_minimum_operation)
         1    0.000    0.000    0.000    0.000 __init__.py:286(c_wchar_p)
         1    0.000    0.000    0.000    0.000 {method 'iteritems' of 'dict' objects}
         1    0.000    0.000    0.000    0.000 linalg.py:37(LinAlgError)
         1    0.000    0.000    0.000    0.000 core.py:756(__init__)
         1    0.000    0.000    0.000    0.000 _iotools.py:442(ConversionWarning)
-        1    0.000    0.000    0.000    0.000 core.py:129(MaskError)
-        2    0.000    0.000    0.000    0.000 sre_parse.py:214(isdigit)
-        1    0.000    0.000    0.000    0.000 UserDict.py:70(__contains__)
+        1    0.000    0.000    0.000    0.000 copy_reg.py:27(constructor)
+        1    0.000    0.000    0.000    0.000 pickle.py:58(PickleError)
+        2    0.000    0.000    0.000    0.000 index_tricks.py:643(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:260(c_bool)
-        1    0.000    0.000    0.000    0.000 pickle.py:62(PicklingError)
+        1    0.000    0.000    0.000    0.000 __init__.py:255(c_void_p)
         1    0.000    0.000    0.000    0.000 polynomial.py:19(RankWarning)
+        3    0.000    0.000    0.000    0.000 core.py:783(__init__)
+        1    0.000    0.000    0.000    0.000 polyutils.py:56(PolyDomainError)
+        1    0.000    0.000    0.000    0.000 __init__.py:189(c_int)
         1    0.000    0.000    0.000    0.000 core.py:2257(__init__)
         1    0.000    0.000    0.000    0.000 __init__.py:238(c_char)
-        1    0.000    0.000    0.000    0.000 core.py:5706(__array_finalize__)
+        1    0.000    0.000    0.000    0.000 _endian.py:26(_swapped_meta)
+        1    0.000    0.000    0.000    0.000 _endian.py:49(BigEndianStructure)
         1    0.000    0.000    0.000    0.000 __init__.py:180(c_ulong)
         3    0.000    0.000    0.000    0.000 _inspect.py:159(<lambda>)
-        1    0.000    0.000    0.000    0.000 case.py:35(_ExpectedFailure)
+        1    0.000    0.000    0.000    0.000 numerictypes.py:770(_typedict)
         1    0.000    0.000    0.000    0.000 __init__.py:197(c_float)
+        1    0.000    0.000    0.000    0.000 _iotools.py:435(ConverterLockError)
         1    0.000    0.000    0.000    0.000 shutil.py:31(Error)
         1    0.000    0.000    0.000    0.000 arrayprint.py:696(ComplexFormat)
         1    0.000    0.000    0.000    0.000 suite.py:299(_DebugResult)
+        1    0.000    0.000    0.000    0.000 _iotools.py:428(ConverterError)
         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 
 
