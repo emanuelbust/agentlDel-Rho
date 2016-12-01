@@ -25,7 +25,7 @@ import random
 def recombine(sites, listOne, listTwo, dest, length):
 	# Choose the indices where the segments will alternate
 	indices = [0, length] + [int(random.random() * length) for i in range(sites)]
-        indices.sort()
+	indices.sort()
 	
 	# Build the new list. Take a section from listTwo first.
 	for i in range(sites + 1):

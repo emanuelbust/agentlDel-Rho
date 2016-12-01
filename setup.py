@@ -125,14 +125,9 @@ def getFitness(s, lDelGene, pDel, pMinusDel, mulDel, rho, alphaGene, betaGene, e
 	# Calculate the first three the fitness components
 	lDels = float(numpy.sum(lDelGene))
 	lDelProp = lDels / lDelGeneLength	
-
-	tempDelFitness = ( max(0, 1 - s * ((rho *  lDelProp) + (1 - lDelProp) * rho * rho * pDel / (pDel + pMinusDel))) )		
-	permDelFitness = ( (1 - 23.0/9.0 * mulDel)**lDels )
-	proofFitness =  ( 1 / (1 - math.log(rho) * 10**-2.5) )
-	envFitness = ( math.exp(-((getEnvScore(alphaGene, lDelGene, betaGene, rho) - envOptimum)**2 / (2 * .5**2))) )
 	
 	# Multiply all the components together and return the result 
-	return tempDelFitness * permDelFitness * proofFitness * envFitness
+	return ( max(0, 1 - s * ((rho *  lDelProp) + (1 - lDelProp) * rho * rho * pDel / (pDel + pMinusDel))) ) * ( (1 - 23.0/9.0 * mulDel)**lDels ) * ( 1 / (1 - math.log(rho) * 10**-2.5) ) * ( math.exp(-((getEnvScore(alphaGene, lDelGene, betaGene, rho) - envOptimum)**2 / (2 * .5**2))) )
 
 ##########################################################################################
 #	Name: initializePopulation
